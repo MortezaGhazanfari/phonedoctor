@@ -1,0 +1,46 @@
+<nav class="site-nav">
+  <div class="nav-content">
+    <!-- Logo + Name -->
+    <button class="nav-logo" (click)="scrollTo('top')">
+      <img
+        src="assets/logo.png"
+        alt="Phone Doctor Logo"
+        class="site-logo-img"
+      />
+      <span class="site-logo-text">Phone Doctor</span>
+    </button>
+
+    <!-- Desktop-Links -->
+    <ul class="nav-links">
+      <li><button (click)="scrollTo('geraete')">Geräte</button></li>
+      <li><button (click)="scrollTo('vorteile')">Vorteile</button></li>
+      <li><button (click)="scrollTo('reparaturen')">Reparaturen</button></li>
+      <li><button (click)="scrollTo('standorte')">Standorte</button></li>
+      <li><button (click)="scrollTo('kontakt')">Kontakt</button></li>
+      <li>
+        <a class="btn primary small" [href]="whatsappHref" target="_blank">
+          WhatsApp
+        </a>
+      </li>
+    </ul>
+
+    <!-- Mobile-Button -->
+    <button class="mobile-menu-btn" (click)="toggleMobileMenu()">
+      ☰
+    </button>
+  </div>
+
+  <!-- Mobile-Menü -->
+  <ul class="mobile-menu" *ngIf="isMobileOpen">
+    <li><button (click)="scrollTo('geraete')">Geräte</button></li>
+    <li><button (click)="scrollTo('vorteile')">Vorteile</button></li>
+    <li><button (click)="scrollTo('reparaturen')">Reparaturen</button></li>
+    <li><button (click)="scrollTo('standorte')">Standorte</button></li>
+    <li><button (click)="scrollTo('kontakt')">Kontakt</button></li>
+    <li>
+      <a [href]="whatsappHref" target="_blank">
+        💬 WhatsApp
+      </a>
+    </li>
+  </ul>
+</nav>

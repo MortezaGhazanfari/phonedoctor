@@ -1,0 +1,52 @@
+<app-nav-bar></app-nav-bar>
+
+<main class="page kontakt-page">
+  <section class="section">
+    <h1>Kontakt</h1>
+    <p class="section-subtitle">
+      Du hast Fragen zu einer Reparatur, willst einen Preis wissen
+      oder bist dir nicht sicher, ob wir dein Gerät reparieren können?
+      Melde dich einfach – wir helfen dir schnell weiter.
+    </p>
+
+    <div class="kontakt-grid">
+      <div class="kontakt-card">
+        <h2>Direkter Kontakt</h2>
+        <ul>
+          <li>
+            📍 {{ contact.address }}
+          </li>
+          <li>
+            ☎️ Festnetz:
+            <a [href]="telFestnetzHref">{{ contact.phone }}</a>
+          </li>
+          <li>
+            📱 Mobil:
+            <a [href]="telMobilHref">{{ contact.mobilePhone }}</a>
+          </li>
+          <li>
+            📧 E-Mail:
+            <a [href]="mailHref">{{ contact.email }}</a>
+          </li>
+          <li>
+            💬 WhatsApp:
+            <a [href]="whatsappHref" target="_blank" rel="noopener noreferrer">
+              Chat starten
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="kontakt-card">
+        <h2>Öffnungszeiten</h2>
+        <ul>
+          <li *ngFor="let oh of contact.openingHours">
+            {{ oh.label }}: {{ oh.time }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

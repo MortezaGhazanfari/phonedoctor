@@ -1,0 +1,62 @@
+<app-nav-bar></app-nav-bar>
+
+<section class="legal-page">
+  <h1>Impressum</h1>
+
+  <p><strong>Angaben gemäß § 5 TMG / § 18 Abs. 2 MStV</strong></p>
+  <p>
+    {{ contact.shopName }}<br />
+    Inhaber: Morteza Ghazanfari<br />
+    {{ contact.address }}
+  </p>
+
+  <p>
+    <strong>Kontakt:</strong><br />
+    Telefon (Mobil / WhatsApp): 
+    <a [href]="'tel:' + contact.mobilePhone">{{ contactFormatted.mobilePhone }}</a><br />
+    Telefon (Festnetz):
+    <a [href]="'tel:' + contact.phone">{{ contactFormatted.phone }}</a><br />
+    E-Mail:
+    <a [href]="'mailto:' + contact.email">{{ contactFormatted.email }}</a>
+  </p>
+
+  <p>
+    <strong>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG:</strong><br />
+    DE457747584
+  </p>
+
+  <p>
+    <strong>Wirtschafts-Identifikationsnummer:</strong><br />
+    014 821 1535 6
+  </p>
+
+  <p>
+    <strong>Inhaltlich verantwortlich gemäß § 18 Abs. 2 MStV:</strong><br />
+    Morteza Ghazanfari, {{ contact.address }}
+  </p>
+
+  <hr />
+
+  <h2>Datenschutzhinweis</h2>
+
+  <p>
+    Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich.
+    Soweit auf unseren Seiten personenbezogene Daten (z. B. Name, Anschrift, E-Mail-Adresse) erhoben
+    werden, erfolgt dies stets auf freiwilliger Basis.
+  </p>
+
+  <p>
+    Wir geben Ihre Daten ohne Ihre ausdrückliche Zustimmung nicht an Dritte weiter. Wir weisen darauf hin,
+    dass die Datenübertragung im Internet Sicherheitslücken aufweisen kann. Ein vollständiger Schutz vor
+    Zugriff durch Dritte ist nicht möglich.
+  </p>
+
+  <p>
+    Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten zur Übersendung von
+    nicht ausdrücklich angeforderter Werbung wird hiermit widersprochen. Die Betreiber behalten sich
+    rechtliche Schritte bei unverlangtem Erhalt von Werbematerialien (z. B. Spam-Mails) ausdrücklich vor.
+  </p>
+</section>
+
+
+<app-footer></app-footer>

@@ -1,0 +1,513 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="startseite">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+
+
+      <h1>
+        Gerät kaputt? <br />
+        <span>Phone Doctor</span> repariert’s.
+      </h1>
+      <p class="hero-subtitle">
+        Smartphone, iPhone, Tablet, Notebook, E-Scooter, Saugroboter, TV, Konsolen
+        und mehr – schnell & professionell an mehreren Standorten in Deutschland.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn primary" (click)="scrollTo('geraete')">
+          Gerät auswählen
+        </button>
+        <a class="btn secondary" [href]="whatsappHref" target="_blank" rel="noopener noreferrer">
+          WhatsApp schreiben
+        </a>
+      </div>
+
+      <div class="hero-info">
+        <div class="info-item">
+          <strong>📍 Aktueller Standort:</strong>
+          <span>{{ contact.address }}</span>
+        </div>
+        <div class="info-item">
+          <strong>☎️ Festnetz:</strong>
+          <a [href]="'tel:' + contact.phone">{{ contactFormatted.phone }}</a>
+        </div>
+        <div class="info-item">
+          <strong>📞 Telefon:</strong>
+          <a [href]="'tel:' + contact.mobilePhone">{{ contactFormatted.mobilePhone }}</a>
+        </div>
+        <div class="info-item">
+          <strong>📧 E-Mail:</strong>
+          <a [href]="'mailto:' + contact.email">{{ contactFormatted.email }}</a>
+        </div>
+      </div>
+
+      <p class="hero-network-hint">
+        Teil eines starken Reparatur-Netzwerks mit Filialen in Frankfurt, Pfaffenhofen und Aschaffenburg.
+      </p>
+    </div>
+
+    <div class="hero-image">
+      <div class="compare">
+        <img src="assets/bild4.png" class="img img-back" alt="Nachher" />
+        <img src="assets/bild3.png" class="img img-front" [style.clipPath]="clipPath" alt="Vorher" />
+        <div class="divider" [style.left.%]="compareValue">
+          <div class="line"></div>
+          <div class="handle"></div>
+        </div>
+        <input
+          type="range"
+          min="0"
+          max="100"
+          [value]="compareValue"
+          (input)="onSlider($event)"
+          class="slider"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- GERÄTE-KATEGORIEN -->
+  <section class="section device-section" id="geraete">
+    <h2>Welches Gerät sollen wir für dich reparieren?</h2>
+    <p class="section-subtitle">
+      Schnell & unkompliziert: Gerät auswählen – kurz Problem angeben – wir melden uns direkt zurück.
+    </p>
+
+    <div class="device-grid">
+      <a class="device-card" (click)="openRequestModal('smartphone', 'Smartphone, Handy & iPhone')">
+        <div class="icon">📱</div>
+        <h3>Smartphone, Handy & iPhone</h3>
+        <p>Display, Akku, Ladebuchse, Wasserschaden und mehr.</p>
+      </a>
+
+      <a class="device-card" (click)="openRequestModal('smartwatch', 'Smartwatch')">
+        <div class="icon">⌚</div>
+        <h3>Smartwatch</h3>
+        <p>Display, Akku & Softwareprobleme.</p>
+      </a>
+
+      <a class="device-card" (click)="openRequestModal('tablet', 'iPad & Tablet')">
+        <div class="icon">📲</div>
+        <h3>iPad & Tablet</h3>
+        <p>Glasbruch, Ladeprobleme & mehr.</p>
+      </a>
+
+
+
+
+      <a class="device-card" (click)="openRequestModal('notebook', 'PC, Notebook, MacBook & iMac')">
+        <div class="icon">💻</div>
+        <h3>PC, Notebook, MacBook & iMac</h3>
+        <p>Hardware-Fehler, Windows/macOS, Aufrüstung</p>
+      </a>
+
+      <a class="device-card" (click)="openRequestModal('escooter', 'E-Scooter')">
+        <div class="icon">🛴</div>
+        <h3>E-Scooter</h3>
+        <p>Akku, Controller, Bremsen & Elektronik</p>
+      </a>
+
+      <a class="device-card" (click)="openRequestModal('saugroboter', 'Saugroboter & Akkusauger')">
+        <div class="icon">🤖</div>
+        <h3>Saugroboter & Akkusauger</h3>
+        <p>Akku, Sensoren, Räder & mehr</p>
+      </a>
+
+      <a class="device-card" (click)="openRequestModal('tv', 'TV')">
+        <div class="icon">🖥️</div>
+        <h3>TV</h3>
+        <p>Bild, Ton, Netzteil & Anschlussprobleme</p>
+      </a>
+
+      <a class="device-card" (click)="openRequestModal('konsole', 'HDMI, Überhitzung, Laufwerk & Software')">
+        <div class="icon">🎮</div>
+        <h3>Konsolen</h3>
+        <p>HDMI, Überhitzung, Laufwerk & Software</p>
+      </a>
+
+      <a class="device-card" (click)="openRequestModal('boxen', 'Boxen & Lautsprecher')">
+        <div class="icon">🔊</div>
+        <h3>Boxen & Lautsprecher</h3>
+        <p>Akku, Kontakt & Soundprobleme</p>
+      </a>
+      <a class="device-card" (click)="openRequestModal('zubehoer', 'Zubehör & Kopfhörer')">
+        <div class="icon">🎧</div>
+        <h3>Zubehör & Kopfhörer</h3>
+        <p>AirPods, Ladecase, Soundprobleme & mehr.</p>
+      </a>
+    </div>
+
+    <p class="section-subtitle contact-hint">
+      Nicht sicher, welche Kategorie passt? <br />
+      Melde dich – wir helfen dir sofort weiter:
+    </p>
+
+    <div class="contact-pill-grid">
+      <a class="contact-pill" [href]="whatsappHref" target="_blank">
+        💬 WhatsApp
+      </a>
+      <a class="contact-pill" [href]="contact.mobilePhone">
+        📱 Mobil: {{ contactFormatted.mobilePhone }}
+      </a>
+      <a class="contact-pill" [href]="contact.phone">
+        ☎️ Festnetz: {{ contactFormatted.phone }}
+      </a>
+      <a class="contact-pill" [href]="'mailto:' + contact.email">
+        📧 {{ contactFormatted.email }}
+      </a>
+    </div>
+
+  </section>
+
+
+  <!-- VORTEILE -->
+  <section class="section" id="vorteile">
+    <h2>Warum {{ contact.shopName }}?</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>⚡ Schnelle Reparatur</h3>
+        <p>
+          Viele Reparaturen sind innerhalb von 30–90 Minuten erledigt –
+          ideal bei Smartphones, Tablets & Co.
+        </p>
+      </article>
+      <article class="card">
+        <h3>💶 Faire & transparente Preise</h3>
+        <p>
+          Klare Preise ohne versteckte Kosten – für Smartphones, Tablets,
+          Notebooks, E-Scooter, Saugroboter und weitere Geräte.
+        </p>
+      </article>
+      <article class="card">
+        <h3>🛡️ Garantie auf Reparaturen</h3>
+        <p>
+          Auf unsere Arbeiten erhältst du Garantie – je nach Reparaturart,
+          Gerät und Ersatzteil.
+        </p>
+      </article>
+      <article class="card">
+        <h3>🔧 Viele Geräte – ein Ansprechpartner</h3>
+        <p>
+          Egal ob Smartphone, iPad, Notebook, E-Scooter, TV oder Konsole –
+          du bringst alles zu einem festen Ansprechpartner.
+        </p>
+      </article>
+    </div>
+  </section>
+
+
+  <!-- ÜBER UNS / NETZWERK -->
+  <section class="section" id="about">
+    <h2>Ein Netzwerk aus spezialisierten Reparatur-Profis</h2>
+    <p>
+      Hinter {{ contact.shopName }} steht ein starkes Team aus erfahrenen Technikern,
+      das an mehreren Standorten in Deutschland für dich da ist.
+    </p>
+    <p>
+      Unsere Filialen tragen unterschiedliche Namen – <strong>iFix</strong> in Pfaffenhofen,
+      <strong>Ashop</strong> und <strong>Handykiosk</strong> in der City-Galerie Aschaffenburg
+      sowie <strong>Phone Doctor</strong> in Frankfurt –
+      aber wir arbeiten eng zusammen und teilen denselben Anspruch:
+    </p>
+    <ul>
+      <li>hohe Qualität bei Reparaturen</li>
+      <li>faire und transparente Preise</li>
+      <li>schneller Service und ehrliche Beratung</li>
+      <li>Verwendung hochwertiger Ersatzteile</li>
+    </ul>
+    <p>
+      Jede Filiale wird von eigenständigen Inhabern geführt,
+      ist aber Teil unseres gemeinsamen Reparatur-Netzwerks.
+      So profitierst du von regionaler Nähe und persönlichem Service –
+      kombiniert mit der Erfahrung eines größeren Teams.
+    </p>
+  </section>
+
+
+  <!-- BELIEBTE REPARATUREN -->
+  <section class="section" id="reparaturen">
+    <h2>Beliebte Reparaturen</h2>
+    <p class="section-subtitle">
+      Hier ein Auszug unserer Smartphone-Reparaturen.
+      Weitere Leistungen findest du über die Gerätekategorien oben.
+    </p>
+    <div class="grid">
+      <article class="card list-card">
+        <h3>📱 Display / Glasbruch</h3>
+        <p>Streifen, Risse oder kein Bild mehr? Wir tauschen Displays fachgerecht aus.</p>
+        <ul>
+          <li>Displaytausch inkl. Montage</li>
+          <li>Schutzglas auf Wunsch direkt dazu</li>
+        </ul>
+      </article>
+      <article class="card list-card">
+        <h3>🔋 Akkuwechsel</h3>
+        <p>Der Akku hält kaum noch? Wir sorgen wieder für volle Power.</p>
+        <ul>
+          <li>Schneller Akkutausch</li>
+          <li>Kein Datenverlust</li>
+        </ul>
+      </article>
+      <article class="card list-card">
+        <h3>🔌 Ladebuchse & Ladeprobleme</h3>
+        <p>Dein Handy lädt nur im bestimmten Winkel oder gar nicht mehr?</p>
+        <ul>
+          <li>Reinigung oder Austausch der Ladebuchse</li>
+          <li>Prüfung von Kabel & Netzteil</li>
+        </ul>
+      </article>
+      <article class="card list-card">
+        <h3>💧 Wasserschaden</h3>
+        <p>Handy ins Wasser gefallen? Schnell vorbeikommen, bevor es schlimmer wird.</p>
+        <ul>
+          <li>Professionelle Reinigung der Platine</li>
+          <li>Fehlerdiagnose & Kostenvoranschlag</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+
+  <!-- SO FUNKTIONIERT'S -->
+  <section class="section section-alt" id="ablauf">
+    <h2>So einfach läuft deine Reparatur</h2>
+    <ol class="steps">
+      <li>
+        <span class="step-number">1</span>
+        <div>
+          <h3>Kontakt oder direkt vorbeikommen</h3>
+          <p>Telefon, WhatsApp oder direkt im Laden – du entscheidest.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">2</span>
+        <div>
+          <h3>Diagnose & Kostenvoranschlag</h3>
+          <p>Wir überprüfen das Gerät und nennen dir die Kosten vorab.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">3</span>
+        <div>
+          <h3>Reparatur & Abholung</h3>
+          <p>Nach der Reparatur wird dein Gerät getestet und ist wieder einsatzbereit.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+
+  <!-- STANDORTE -->
+  <section class="section" id="standorte">
+    <h2>Unsere Standorte in Deutschland</h2>
+    <p class="section-subtitle">
+      Du findest unser Reparatur-Netzwerk aktuell an diesen Standorten:
+    </p>
+
+    <div class="grid">
+      <article class="card">
+        <h3>iFix – Pfaffenhofen</h3>
+        <p>
+          Ingolstädter Str. 16<br />
+          85276 Pfaffenhofen
+        </p>
+        <p>Smartphone-, Tablet- & PC-Reparaturen vor Ort.</p>
+      </article>
+
+      <article class="card">
+        <h3>Ashop – Aschaffenburg</h3>
+        <p>
+          City Galerie Aschaffenburg<br />
+          Goldbacher Str. 2<br />
+          63739 Aschaffenburg
+        </p>
+        <p>Handy- & Smartphone-Reparaturen, Zubehör & mehr.</p>
+      </article>
+
+      <article class="card">
+        <h3>Handykiosk – Aschaffenburg</h3>
+        <p>
+          City Galerie Aschaffenburg<br />
+          Goldbacher Str. 2<br />
+          63739 Aschaffenburg
+        </p>
+        <p>Handyreparaturen direkt im Einkaufszentrum.</p>
+      </article>
+
+      <article class="card">
+        <h3>Phone Doctor – Frankfurt</h3>
+        <p>
+          Borsigallee 37<br />
+          60388 Frankfurt
+        </p>
+        <p>Reparatur von Smartphone, Tablet, PC, E-Scooter, TV & mehr.</p>
+      </article>
+    </div>
+  </section>
+
+
+  <section class="section" id="online-auftrag">
+    <div class="cta">
+      <div class="cta-text">
+        <h2>Jetzt unverbindlich Reparatur anfragen</h2>
+        <p>
+          Beschreibe kurz dein Problem – wir melden uns mit einer Einschätzung.
+        </p>
+        <button class="btn primary" (click)="scrollTo('geraete')">
+          Jetzt Reparatur starten
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- KONTAKT (AKTUELLER STANDORT) -->
+   <section class="section section-alt" id="kontakt">
+    <h2>Dein Reparatur-Partner vor Ort</h2>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-logo-row">
+          <img
+            src="assets/logo.png"
+            alt="Phone Doctor Logo"
+            class="contact-logo-img"
+          />
+          <span class="contact-logo-text">{{ contact.shopName }}</span>
+        </div>
+        <p>
+          {{ contact.address }}
+        </p>
+        <p>
+          <strong>Festnetz:</strong>
+          <a [href]="'tel:' + contact.phone">{{ contactFormatted.phone }}</a><br />
+          <strong>Telefon:</strong>
+          <a [href]="'tel:' + contact.mobilePhone">{{ contactFormatted.mobilePhone }}</a><br />
+          <strong>WhatsApp:</strong>
+          <a [href]="whatsappHref" target="_blank" rel="noopener noreferrer">
+            Chat starten
+          </a><br />
+          <strong>E-Mail:</strong>
+          <a [href]="'mailto:' + contact.email">{{ contactFormatted.email }}</a>
+        </p>
+      </div>
+      <div>
+        <h3>Öffnungszeiten</h3>
+        <p *ngFor="let oh of contact.openingHours">
+          {{ oh.label }}: {{ oh.time }}<br />
+        </p>
+      </div>
+    </div>
+  </section>
+  <app-footer></app-footer>
+</div>
+
+
+<!-- MODAL: Reparaturanfrage -->
+<div class="modal-backdrop" *ngIf="isModalOpen" (click)="closeModal()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <!-- Kopf -->
+ <header class="modal-header">
+      <div class="modal-header-left">
+        <img
+          src="assets/logo.png"
+          alt="Phone Doctor Logo"
+          class="modal-logo-img"
+        />
+        <div class="modal-title-text">
+          <h2>Reparaturanfrage</h2>
+          <p class="modal-device-label">für {{ currentDeviceLabel }}</p>
+        </div>
+      </div>
+      <button class="modal-close" (click)="closeModal()">✕</button>
+    </header>
+
+    <!-- Stepper -->
+    <div class="modal-steps">
+      <div class="step" [class.active]="modalStep === 1">
+        <span>1</span> Probleme wählen
+      </div>
+      <div class="step" [class.active]="modalStep === 2">
+        <span>2</span> Kontaktdaten
+      </div>
+    </div>
+
+    <!-- Inhalt -->
+    <div class="modal-body">
+
+      <!-- SCHRITT 1 -->
+      <ng-container *ngIf="modalStep === 1">
+        <p class="modal-subtitle">
+          Wähle alle passenden Probleme aus.
+        </p>
+
+        <div class="problem-chip-grid">
+          <button type="button" class="problem-chip" *ngFor="let p of currentProblemList"
+            [class.selected]="isProblemSelected(p)" (click)="toggleProblem(p)">
+            {{ p }}
+          </button>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn secondary" (click)="closeModal()">Abbrechen</button>
+          <button class="btn primary" (click)="goToStep2()">
+            Weiter
+          </button>
+        </div>
+      </ng-container>
+
+      <!-- SCHRITT 2 -->
+      <ng-container *ngIf="modalStep === 2">
+        <form [formGroup]="contactForm" (ngSubmit)="sendRequest()" class="form-grid">
+          <div class="form-group">
+            <label>Dein Name *</label>
+            <input type="text" formControlName="name" />
+          </div>
+
+          <div class="form-group">
+            <label>Telefonnummer *</label>
+            <input type="tel" formControlName="phoneNumber" />
+          </div>
+
+          <div class="form-group">
+            <label>E-Mail (optional)</label>
+            <input type="email" formControlName="email" />
+          </div>
+
+          <div class="form-group">
+            <label>Modell des Gerätes *</label>
+            <input type="text" formControlName="deviceModel" placeholder="z. B. iPhone 13, Galaxy S22" />
+          </div>
+
+          <div class="form-group form-group-full">
+            <label>Kurze Problembeschreibung</label>
+            <textarea rows="3" formControlName="description"
+              placeholder="z. B. Display gesprungen, Akku schnell leer, lädt nur im bestimmten Winkel..."></textarea>
+          </div>
+
+          <div class="form-group form-group-full">
+            <label>Wie sollen wir dich kontaktieren?</label>
+            <div class="radio-row">
+              <label>
+                <input type="radio" value="whatsapp" formControlName="preferredChannel" />
+                WhatsApp
+              </label>
+              <label>
+                <input type="radio" value="email" formControlName="preferredChannel" />
+                E-Mail
+              </label>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn secondary" (click)="backToStep1()">Zurück</button>
+            <button type="submit" class="btn primary">
+              Anfrage senden
+            </button>
+          </div>
+        </form>
+      </ng-container>
+    </div>
+  </div>
+</div>

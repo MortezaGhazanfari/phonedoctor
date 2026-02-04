@@ -1,0 +1,43 @@
+<footer class="site-footer">
+
+  <!-- Top: Kontakt + Links -->
+  <div class="footer-content">
+
+    <!-- Logo + Kurzbeschreibung -->
+    <div class="footer-brand">
+      <img src="assets/logo.png" alt="Phone Doctor Logo" class="footer-logo">
+      <p>
+        Schnelle & professionelle Reparaturen für Smartphones, Tablets,
+        PC, Konsolen, TV, E-Scooter und mehr.
+      </p>
+    </div>
+
+    <!-- Kontakt -->
+    <div>
+      <h4>Kontakt</h4>
+      <ul>
+        <li>📍 {{ contact.address }}</li>
+        <li>☎️ <a [href]="'tel:' + contact.phone">{{ contact.phone }}</a></li>
+        <li>📱 <a [href]="'tel:' + contact.mobilePhone">{{ contact.mobilePhone }}</a></li>
+        <li>📧 <a [href]="'mailto:' + contact.email">{{ contact.email }}</a></li>
+        <li>💬 <a [href]="whatsappHref" target="_blank">WhatsApp Chat</a></li>
+      </ul>
+    </div>
+
+    <!-- Rechtliches -->
+    <div>
+      <h4>Rechtliches</h4>
+      <ul>
+        <li><a routerLink="/kontakt">Kontakt</a></li>
+        <li><a routerLink="/impressum">Impressum</a></li>
+        <li><a routerLink="/agb">AGB</a></li>
+        <li><a routerLink="/datenschutz">Datenschutz</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Bottom: Copyright -->
+<p>© {{ 2025 | date:'yyyy' }} {{ contact.shopName }}</p>
+
+</footer>
