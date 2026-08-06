@@ -1,0 +1,39 @@
+<app-nav-bar></app-nav-bar>
+
+<main class="page faq-page">
+  <section class="section">
+    <h1>Häufige Fragen zur Handy-Reparatur in Frankfurt</h1>
+
+    <p class="section-subtitle">
+      Hier findest du Antworten auf die Fragen, die uns Kunden am häufigsten
+      stellen – von den Kosten über die Dauer bis zur Garantie. Deine Frage ist
+      nicht dabei? Schreib uns einfach per
+      <a [href]="whatsappHref" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      oder ruf an.
+    </p>
+
+    <div class="faq-list">
+      <article class="faq-item" *ngFor="let faq of faqs">
+        <h2>{{ faq.frage }}</h2>
+        <p>{{ faq.antwort }}</p>
+      </article>
+    </div>
+
+    <div class="faq-contact">
+      <h2>Noch Fragen?</h2>
+      <p>
+        Wir helfen dir gern persönlich weiter – komm einfach vorbei oder melde
+        dich:
+      </p>
+      <ul>
+        <li>📍 {{ contact.address }}</li>
+        <li>☎️ <a [href]="'tel:' + contact.phone">{{ contact.phone }}</a></li>
+        <li>💬 <a [href]="whatsappHref" target="_blank" rel="noopener noreferrer">WhatsApp Chat starten</a></li>
+        <li>📧 <a [href]="'mailto:' + contact.email">{{ contact.email }}</a></li>
+        <li>➡️ <a routerLink="/kontakt">Alle Kontaktdaten & Öffnungszeiten</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

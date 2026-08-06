@@ -16,6 +16,7 @@
       <li><button (click)="scrollTo('vorteile')">Vorteile</button></li>
       <li><button (click)="scrollTo('reparaturen')">Reparaturen</button></li>
       <li><button (click)="scrollTo('standorte')">Standorte</button></li>
+      <li><button routerLink="/faq">FAQ</button></li>
       <li><button (click)="scrollTo('kontakt')">Kontakt</button></li>
       <li>
         <a class="btn primary small" [href]="whatsappHref" target="_blank">
@@ -36,6 +37,7 @@
     <li><button (click)="scrollTo('vorteile')">Vorteile</button></li>
     <li><button (click)="scrollTo('reparaturen')">Reparaturen</button></li>
     <li><button (click)="scrollTo('standorte')">Standorte</button></li>
+    <li><button routerLink="/faq" (click)="isMobileOpen = false">FAQ</button></li>
     <li><button (click)="scrollTo('kontakt')">Kontakt</button></li>
     <li>
       <a [href]="whatsappHref" target="_blank">

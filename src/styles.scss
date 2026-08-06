@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+/* Globale Grundstyles – gelten für alle Seiten (Home bringt eigene mit) */
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.page {
+  .section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 3rem;
+  }
+
+  .section-subtitle {
+    color: #475569;
+  }
+}
