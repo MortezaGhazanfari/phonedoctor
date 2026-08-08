@@ -12,7 +12,7 @@ import { CONTACT_CONFIG } from '../contact/contact.config.config';
 })
 export class FooterComponent {
   contact = CONTACT_CONFIG;
-Date: any;
+  jahr = new Date().getFullYear();
 
   get whatsappHref(): string {
     const digits = this.contact.whatsapp.replace(/\D/g, '');

@@ -9,6 +9,12 @@ export const routes: Routes = [
   },
 
   {
+    path: 'preise',
+    loadComponent: () =>
+      import('./pages/preise/preise.component').then(m => m.PreiseComponent),
+    title: 'Reparatur-Preise & Preisrechner – Phone Doctor Frankfurt',
+  },
+  {
     path: 'faq',
     loadComponent: () =>
       import('./pages/faq/faq.component').then(m => m.FaqComponent),

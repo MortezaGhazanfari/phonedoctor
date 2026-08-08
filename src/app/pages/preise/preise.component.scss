@@ -1,0 +1,235 @@
+.page.preise-page {
+  .schritt {
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+    border: 1px solid #e5e7eb;
+    margin-bottom: 1.25rem;
+    position: relative;
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      font-size: 1.05rem;
+    }
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      border: 2px solid #e5e7eb;
+      border-radius: 0.6rem;
+      outline: none;
+      font-family: inherit;
+
+      &:focus {
+        border-color: #2563eb;
+      }
+    }
+  }
+
+  .vorschlaege {
+    list-style: none;
+    margin: 0.4rem 0 0;
+    padding: 0;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    background: #fff;
+
+    li button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.65rem 1rem;
+      background: none;
+      border: none;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 1rem;
+      cursor: pointer;
+      font-family: inherit;
+
+      &:hover {
+        background: #eff6ff;
+      }
+
+      .marke {
+        color: #64748b;
+        font-size: 0.85rem;
+        margin-right: 0.35rem;
+      }
+    }
+
+    li:last-child button {
+      border-bottom: none;
+    }
+  }
+
+  .gewaehlt {
+    margin-top: 0.75rem;
+    font-weight: 600;
+    color: #16a34a;
+
+    .link-btn {
+      background: none;
+      border: none;
+      color: #2563eb;
+      cursor: pointer;
+      font-size: 0.9rem;
+      margin-left: 0.5rem;
+      text-decoration: underline;
+      font-family: inherit;
+    }
+  }
+
+  .hinweis {
+    color: #64748b;
+    font-size: 0.92rem;
+    margin-top: 0.6rem;
+
+    a {
+      color: #2563eb;
+    }
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.9rem;
+
+    button {
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid #cbd5e1;
+      background: #f8fafc;
+      cursor: pointer;
+      font-size: 0.92rem;
+      font-family: inherit;
+
+      &:hover {
+        border-color: #2563eb;
+        color: #2563eb;
+      }
+
+      &.aktiv {
+        background: #2563eb;
+        border-color: #2563eb;
+        color: #fff;
+      }
+    }
+  }
+
+  .ergebnis {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .preis-satz {
+      font-size: 1.15rem;
+
+      strong {
+        color: #2563eb;
+        font-size: 1.35rem;
+      }
+    }
+
+    .ergebnis-block {
+      background: #ffffff;
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      margin-top: 0.9rem;
+      border: 1px solid #e5e7eb;
+
+      h3 {
+        margin: 0 0 0.5rem;
+        font-size: 1.05rem;
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          display: flex;
+          justify-content: space-between;
+          gap: 1rem;
+          padding: 0.35rem 0;
+          border-bottom: 1px dashed #e5e7eb;
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          strong {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+
+    .disclaimer {
+      color: #64748b;
+      font-size: 0.88rem;
+      margin: 1rem 0 0;
+    }
+  }
+
+  .cta {
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+    border: 1px solid #e5e7eb;
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 1rem 0;
+
+      .btn {
+        display: inline-block;
+        padding: 0.7rem 1.2rem;
+        border-radius: 0.6rem;
+        text-decoration: none;
+        font-weight: 600;
+        border: 1px solid transparent;
+
+        &.whatsapp {
+          background: #16a34a;
+          color: #fff;
+        }
+
+        &.mail {
+          background: #2563eb;
+          color: #fff;
+        }
+
+        &.tel {
+          background: #f8fafc;
+          color: #111827;
+          border-color: #cbd5e1;
+        }
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+    }
+  }
+}

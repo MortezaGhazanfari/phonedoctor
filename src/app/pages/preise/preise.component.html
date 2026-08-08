@@ -1,0 +1,129 @@
+<app-nav-bar></app-nav-bar>
+
+<main class="page preise-page">
+  <section class="section">
+    <h1>Was kostet deine Reparatur?</h1>
+
+    <p class="section-subtitle">
+      Wähle dein Gerät, sag uns, was kaputt ist – und du siehst sofort, was die
+      Reparatur voraussichtlich kostet. Unverbindlich und ohne Anmeldung, für
+      über 350 Modelle von Apple, Samsung, Google, Huawei, Sony und Microsoft.
+    </p>
+
+    <!-- Schritt 1: Gerät -->
+    <div class="schritt">
+      <label for="geraet">1. Welches Gerät hast du?</label>
+      <input
+        id="geraet"
+        type="text"
+        autocomplete="off"
+        [ngModel]="suche"
+        (ngModelChange)="sucheGeaendert($event)"
+        placeholder="z. B. iPhone 13, Galaxy S23 Ultra, Pixel 8 …"
+      />
+
+      <ul class="vorschlaege" *ngIf="vorschlaege.length > 0 && !modell">
+        <li *ngFor="let m of vorschlaege">
+          <button type="button" (click)="waehleModell(m)">
+            <span class="marke">{{ m.brand }}</span> {{ m.name }}
+          </button>
+        </li>
+      </ul>
+
+      <p class="hinweis" *ngIf="suche.trim().length > 2 && vorschlaege.length === 0 && !modell">
+        Dein Modell ist nicht dabei? Kein Problem – schreib uns einfach unten
+        eine Nachricht, wir nennen dir trotzdem einen Preis.
+      </p>
+
+      <div class="gewaehlt" *ngIf="modell">
+        ✔ {{ modell.brand }} {{ modell.name }}
+        <button type="button" class="link-btn" (click)="resetModell()">ändern</button>
+      </div>
+    </div>
+
+    <!-- Schritt 2: Schaden -->
+    <div class="schritt" *ngIf="modell">
+      <label for="problem">2. Was ist kaputt?</label>
+      <input
+        id="problem"
+        type="text"
+        autocomplete="off"
+        [(ngModel)]="problem"
+        (ngModelChange)="analysiere()"
+        placeholder="Beschreib es einfach: z. B. Display gesprungen, Akku schnell leer, lädt nicht mehr …"
+      />
+
+      <div class="chips">
+        <button
+          type="button"
+          *ngFor="let k of verfuegbareKategorien"
+          [class.aktiv]="istAktiv(k.id)"
+          (click)="waehleKategorie(k.id)"
+        >
+          {{ k.label }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Ergebnis -->
+    <div class="ergebnis" *ngIf="ergebnisse.length > 0">
+      <h2>Voraussichtlicher Preis</h2>
+
+      <p class="preis-satz" *ngIf="guenstigsterPreis !== null">
+        Wahrscheinlich kostet dich die Reparatur
+        <strong>ab {{ guenstigsterPreis }} €</strong>.
+      </p>
+
+      <div class="ergebnis-block" *ngFor="let e of ergebnisse">
+        <h3>{{ e.label }}</h3>
+        <ul>
+          <li *ngFor="let v of e.eintraege">
+            <span>{{ v.q || 'Austausch / Reparatur' }}</span>
+            <strong>{{ v.q === 'ab' ? 'ab ' : 'ca. ' }}{{ v.p }} €</strong>
+          </li>
+        </ul>
+      </div>
+
+      <p class="disclaimer">
+        Unverbindliche Preisschätzung. Den genauen Preis bestätigen wir dir nach
+        einer kurzen Diagnose vor Ort – erst danach entscheidest du, ob wir
+        reparieren sollen.
+      </p>
+    </div>
+
+    <!-- Diagnose-Hinweis -->
+    <div class="ergebnis" *ngIf="modell && diagnoseHinweis && ergebnisse.length === 0">
+      <h2>Das schauen wir uns am besten direkt an</h2>
+      <p>
+        Aus deiner Beschreibung können wir den Preis nicht sicher ableiten.
+        Bring dein Gerät einfach vorbei – die Fehlerdiagnose mit
+        Kostenvoranschlag kostet {{ general.kva }} € (bei Wasserschaden
+        {{ general.wasserKva }} €) und wird bei einer Reparatur verrechnet.
+        Oder schreib uns kurz, was passiert ist:
+      </p>
+    </div>
+
+    <!-- Kontakt-CTA -->
+    <div class="cta">
+      <h2>Lieber direkt fragen?</h2>
+      <p>
+        Schick uns deine Anfrage – wir antworten schnell und nennen dir einen
+        verbindlichen Preis:
+      </p>
+      <div class="cta-buttons">
+        <a class="btn whatsapp" [href]="whatsappHref" target="_blank" rel="noopener noreferrer">
+          💬 Per WhatsApp senden
+        </a>
+        <a class="btn mail" [href]="mailHref">📧 Nachricht schreiben</a>
+        <a class="btn tel" [href]="telHref">☎️ Anrufen: {{ contact.phone }}</a>
+      </div>
+      <p class="hinweis">
+        Deine Angaben aus dem Rechner werden automatisch in die Nachricht
+        übernommen. Mehr zu unseren Leistungen findest du in den
+        <a routerLink="/faq">häufigen Fragen</a>.
+      </p>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>
