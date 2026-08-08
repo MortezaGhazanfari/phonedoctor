@@ -19,6 +19,9 @@
         <button class="btn primary" (click)="scrollTo('geraete')">
           Gerät auswählen
         </button>
+        <button class="btn secondary" routerLink="/preise">
+          💶 Reparatur-Preise abfragen
+        </button>
         <a class="btn secondary" [href]="whatsappHref" target="_blank" rel="noopener noreferrer">
           WhatsApp schreiben
         </a>
@@ -161,6 +164,37 @@
 
   </section>
 
+
+  <!-- PREISE -->
+  <section class="section section-alt" id="preise">
+    <h2>Was kostet deine Reparatur?</h2>
+    <p class="section-subtitle">
+      Kein Rätselraten: Wähle dein Modell, beschreib kurz den Schaden – und du
+      siehst sofort den voraussichtlichen Preis. Für über 350 Modelle von
+      Apple, Samsung, Google, Huawei, Sony und Microsoft.
+    </p>
+
+    <div class="grid preise-teaser">
+      <article class="card">
+        <h3>📱 Modell wählen</h3>
+        <p>Einfach eintippen – z. B. „iPhone 13" oder „Galaxy S23 Ultra".</p>
+      </article>
+      <article class="card">
+        <h3>🔧 Schaden beschreiben</h3>
+        <p>„Display gesprungen", „Akku schnell leer", „lädt nicht" – reicht schon.</p>
+      </article>
+      <article class="card">
+        <h3>💶 Preis sofort sehen</h3>
+        <p>Voraussichtlicher Preis inkl. Qualitätsstufen – unverbindlich & transparent.</p>
+      </article>
+    </div>
+
+    <div class="preise-cta">
+      <button class="btn primary" routerLink="/preise">
+        Jetzt Reparatur-Preis abfragen
+      </button>
+    </div>
+  </section>
 
   <!-- VORTEILE -->
   <section class="section" id="vorteile">

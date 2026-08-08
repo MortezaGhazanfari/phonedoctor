@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { CONTACT_CONFIG } from '../../core/contact/contact.config.config';
 import { NavBarComponent } from '../../core/nav-bar/nav-bar.component';
 import { FooterComponent } from "../../core/footer/footer.component";
@@ -8,7 +9,7 @@ import { FooterComponent } from "../../core/footer/footer.component";
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NavBarComponent, FooterComponent],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, NavBarComponent, FooterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
