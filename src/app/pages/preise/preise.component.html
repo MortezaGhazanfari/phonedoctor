@@ -123,6 +123,47 @@
         <a routerLink="/faq">häufigen Fragen</a>.
       </p>
     </div>
+
+    <!-- Vollständige Preisliste (auch für Suchmaschinen & KI lesbar) -->
+    <div class="preisliste">
+      <h2>Reparatur-Preisliste Frankfurt: Display, Akku & Ladebuchse</h2>
+      <p class="hinweis">
+        Auszug aus unserer Preisliste für die häufigsten Reparaturen – alle
+        Preise „ab", je nach Ersatzteil-Qualität. Weitere Reparaturen (Kamera,
+        Backcover, Hörmuschel, Mikrofon u.&nbsp;v.&nbsp;m.) findest du oben im
+        Preisrechner oder auf Anfrage.
+      </p>
+
+      <details *ngFor="let g of preisliste; let i = index" [open]="i === 0">
+        <summary>{{ g.brand }} – {{ g.zeilen.length }} Modelle</summary>
+        <div class="tabelle-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Modell</th>
+                <th>Display-Reparatur</th>
+                <th>Akku-Tausch</th>
+                <th>Ladebuchse</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let z of g.zeilen">
+                <td>{{ z.name }}</td>
+                <td>{{ z.display !== null ? 'ab ' + z.display + ' €' : 'auf Anfrage' }}</td>
+                <td>{{ z.akku !== null ? 'ab ' + z.akku + ' €' : 'auf Anfrage' }}</td>
+                <td>{{ z.ladebuchse !== null ? 'ab ' + z.ladebuchse + ' €' : 'auf Anfrage' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <p class="disclaimer">
+        Unverbindliche Richtpreise von Phone Doctor Frankfurt (Borsigallee 37,
+        60388 Frankfurt am Main), Stand August 2026. Der endgültige Preis wird
+        nach einer kurzen Diagnose vor Ort bestätigt.
+      </p>
+    </div>
   </section>
 </main>
 

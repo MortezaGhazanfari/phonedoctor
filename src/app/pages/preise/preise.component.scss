@@ -185,6 +185,60 @@
     }
   }
 
+  .preisliste {
+    margin-top: 2rem;
+
+    details {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.75rem;
+      margin-bottom: 0.6rem;
+      overflow: hidden;
+
+      summary {
+        cursor: pointer;
+        font-weight: 600;
+        padding: 0.9rem 1.25rem;
+        list-style-position: inside;
+
+        &:hover {
+          background: #f8fafc;
+        }
+      }
+    }
+
+    .tabelle-wrap {
+      overflow-x: auto;
+      padding: 0 1.25rem 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+
+      th,
+      td {
+        text-align: left;
+        padding: 0.45rem 0.75rem;
+        border-bottom: 1px solid #f1f5f9;
+        white-space: nowrap;
+      }
+
+      th {
+        color: #64748b;
+        font-weight: 600;
+        border-bottom: 2px solid #e5e7eb;
+      }
+    }
+
+    .disclaimer {
+      color: #64748b;
+      font-size: 0.85rem;
+      margin-top: 1rem;
+    }
+  }
+
   .cta {
     background: #ffffff;
     border-radius: 1rem;

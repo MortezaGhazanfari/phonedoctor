@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Inject } from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Meta } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
@@ -18,6 +18,13 @@ interface Ergebnis {
   id: string;
   label: string;
   eintraege: PriceEntry[];
+}
+
+interface ListenZeile {
+  name: string;
+  display: number | null;
+  akku: number | null;
+  ladebuchse: number | null;
 }
 
 const KATEGORIEN: Kategorie[] = [
@@ -121,6 +128,8 @@ export class PreiseComponent {
   contact = CONTACT_CONFIG;
   general = GENERAL_SERVICES;
 
+  preisliste: { brand: string; zeilen: ListenZeile[] }[] = [];
+
   suche = '';
   vorschlaege: DeviceModel[] = [];
   modell: DeviceModel | null = null;
@@ -129,12 +138,62 @@ export class PreiseComponent {
   ergebnisse: Ergebnis[] = [];
   diagnoseHinweis = false;
 
-  constructor(meta: Meta) {
+  constructor(@Inject(DOCUMENT) doc: Document, meta: Meta) {
     meta.updateTag({
       name: 'description',
       content:
         'Was kostet deine Handy-Reparatur? Gerät wählen, Schaden beschreiben und sofort den voraussichtlichen Preis sehen – für iPhone, Samsung Galaxy und über 350 Modelle. Phone Doctor Frankfurt.',
     });
+
+    const minPreis = (e?: PriceEntry[]) => (e && e.length ? e[0].p : null);
+    const marken = ['Apple', 'Samsung', 'Google', 'Huawei', 'Sony', 'Microsoft'];
+    this.preisliste = marken
+      .map((b) => ({
+        brand: b,
+        zeilen: PRICE_DATA.filter((m) => m.brand === b).map((m) => ({
+          name: m.name,
+          display: minPreis(m.repairs['display']),
+          akku: minPreis(m.repairs['akku']),
+          ladebuchse: minPreis(m.repairs['ladebuchse']),
+        })),
+      }))
+      .filter((g) => g.zeilen.length > 0);
+
+    if (!doc.getElementById('preise-jsonld')) {
+      const alleMin = (cat: string) => {
+        const preise = PRICE_DATA.map((m) => minPreis(m.repairs[cat])).filter((p): p is number => p !== null);
+        return preise.length ? Math.min(...preise) : null;
+      };
+      const angebote = [
+        { name: 'Display-Reparatur', cat: 'display' },
+        { name: 'Akku-Tausch', cat: 'akku' },
+        { name: 'Ladebuchsen-Reparatur', cat: 'ladebuchse' },
+        { name: 'Kamera-Reparatur', cat: 'kamera' },
+        { name: 'Backcover-Tausch', cat: 'backcover' },
+      ]
+        .map((a) => ({ ...a, min: alleMin(a.cat) }))
+        .filter((a) => a.min !== null)
+        .map((a) => ({
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: `${a.name} (Smartphone/Tablet)`, areaServed: 'Frankfurt am Main' },
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            minPrice: a.min,
+            priceCurrency: 'EUR',
+          },
+        }));
+      const script = doc.createElement('script');
+      script.id = 'preise-jsonld';
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'OfferCatalog',
+        name: 'Reparatur-Preise Phone Doctor Frankfurt',
+        url: 'https://phonedoctorffm.de/preise',
+        itemListElement: angebote,
+      });
+      doc.head.appendChild(script);
+    }
   }
 
   sucheGeaendert(wert: string): void {
