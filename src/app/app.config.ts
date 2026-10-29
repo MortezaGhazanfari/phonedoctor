@@ -1,5 +1,6 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter, withInMemoryScrolling } from '@angular/router';
+import { UrlSerializer, provideRouter, withInMemoryScrolling } from '@angular/router';
+import { TrailingSlashUrlSerializer } from './core/seo/trailing-slash-serializer';
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
@@ -14,5 +15,6 @@ export const appConfig: ApplicationConfig = {
       })
     ),
     provideClientHydration(),
+    { provide: UrlSerializer, useClass: TrailingSlashUrlSerializer },
   ]
 };
