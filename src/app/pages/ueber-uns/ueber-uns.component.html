@@ -1,0 +1,62 @@
+<app-nav-bar></app-nav-bar>
+
+<main class="page reparatur-page">
+  <section class="section">
+    <h1>Über Phone Doctor Frankfurt</h1>
+
+    <p class="section-subtitle">
+      Phone Doctor ist eine Reparaturwerkstatt für Smartphones, Tablets,
+      Laptops, MacBooks, Smartwatches und weitere Elektronik in der
+      Borsigallee 37 in Frankfurt-Bergen-Enkheim, direkt am Hessen-Center.
+      Inhaber ist Morteza Ghazanfari.
+    </p>
+
+    <h2>Was wir machen</h2>
+    <p>
+      Wir reparieren Geräte aller gängigen Marken – von gebrochenen Displays
+      und schwachen Akkus über defekte Ladebuchsen, Kameras und Rückgläser bis
+      zu Wasserschäden und Datenrettung. Viele Reparaturen erledigen wir noch
+      am selben Tag, oft während du wartest. Außerdem reparieren wir PCs,
+      Spielkonsolen, Fernseher und E-Scooter.
+    </p>
+    <ul>
+      <li *ngFor="let s of reparaturSeiten">
+        <a [routerLink]="['/reparatur', s.slug]">{{ s.kurzname }}</a>
+      </li>
+    </ul>
+
+    <h2>So arbeiten wir</h2>
+    <ul>
+      <li><strong>Klare Preise vorab:</strong> Du siehst unsere Richtpreise online im <a routerLink="/preise">Preisrechner</a> und bekommst vor jeder Reparatur einen verbindlichen Preis.</li>
+      <li><strong>Ehrliche Beratung:</strong> Lohnt sich eine Reparatur nicht mehr, sagen wir dir das offen.</li>
+      <li><strong>Gewährleistung:</strong> Auf verbaute Ersatzteile und unsere Arbeit gilt die gesetzliche Gewährleistung.</li>
+      <li><strong>Ohne Termin:</strong> Komm einfach während der Öffnungszeiten vorbei.</li>
+    </ul>
+
+    <h2>Teil eines Reparatur-Netzwerks</h2>
+    <p>
+      Phone Doctor gehört zu einem Netzwerk spezialisierter Reparaturläden mit
+      Standorten in Frankfurt, Pfaffenhofen (iFix) und Aschaffenburg (Ashop
+      und Handykiosk in der City Galerie).
+    </p>
+
+    <div class="kontakt-box">
+      <h2>Kontakt und Öffnungszeiten</h2>
+      <p>
+        <strong>Phone Doctor</strong><br />
+        {{ contact.address }} (am Hessen-Center)<br />
+        <span *ngFor="let oh of contact.openingHours">{{ oh.label }}: {{ oh.time }}<br /></span>
+        Telefon: <a [href]="'tel:' + contact.phone">{{ contact.phone }}</a> ·
+        E-Mail: <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
+      </p>
+      <p>
+        <a routerLink="/kontakt">Kontakt</a> ·
+        <a routerLink="/impressum">Impressum</a> ·
+        <a routerLink="/agb">AGB</a> ·
+        <a routerLink="/datenschutz">Datenschutz</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

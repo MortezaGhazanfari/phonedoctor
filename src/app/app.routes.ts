@@ -43,6 +43,16 @@ export const routes: Routes = [
     },
   },
   {
+    path: 'ueber-uns',
+    loadComponent: () =>
+      import('./pages/ueber-uns/ueber-uns.component').then(m => m.UeberUnsComponent),
+    title: 'Über uns – Phone Doctor Frankfurt, Handy-Reparatur am Hessen-Center',
+    data: {
+      description:
+        'Phone Doctor ist eine Reparaturwerkstatt für Handys, Tablets, Laptops, MacBooks und Smartwatches in Frankfurt-Bergen-Enkheim (Borsigallee 37, am Hessen-Center). Inhaber: Morteza Ghazanfari.',
+    },
+  },
+  {
     path: 'kontakt',
     loadComponent: () =>
       import('./pages/kontakt/kontakt.component').then(m => m.KontaktComponent),

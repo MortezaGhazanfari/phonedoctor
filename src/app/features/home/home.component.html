@@ -397,6 +397,21 @@
   </section>
 
 
+  <!-- HÄUFIGE FRAGEN -->
+  <section class="section" id="fragen">
+    <h2>Häufige Fragen</h2>
+    <div class="grid">
+      <article class="card" *ngFor="let f of faqs">
+        <h3>{{ f.frage }}</h3>
+        <p>{{ f.antwort }}</p>
+      </article>
+    </div>
+    <p class="section-subtitle">
+      <a routerLink="/faq">Alle Fragen und Antworten</a> ·
+      <a routerLink="/ueber-uns">Über uns</a>
+    </p>
+  </section>
+
   <!-- KONTAKT (AKTUELLER STANDORT) -->
    <section class="section section-alt" id="kontakt">
     <h2>Dein Reparatur-Partner vor Ort</h2>

@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Handy, iPhone, Tablet, MacBook, Laptop & Smartwatch Reparatur in Frankfurt (Borsigallee 37, am Hessen-Center). Display, Akku, Ladebuchse – schnell, fair, mit Gewährleistung.">
   <link rel="icon" type="image/x-icon" href="assets/logo.png">
+  <link rel="alternate" type="text/markdown" href="/llms.txt" title="Zusammenfassung für KI-Agenten">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Phone Doctor Frankfurt">
@@ -62,6 +63,69 @@
       }
     ]
   }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://phonedoctorffm.de/#website",
+    "name": "Phone Doctor Frankfurt",
+    "url": "https://phonedoctorffm.de/",
+    "inLanguage": "de-DE",
+    "publisher": { "@id": "https://phonedoctorffm.de/#business" }
+  }
+  </script>
+  <script>
+    (function () {
+      var mc = typeof navigator !== 'undefined' && navigator.modelContext;
+      if (!mc || typeof mc.registerTool !== 'function') return;
+      var text = function (daten) {
+        return { content: [{ type: 'text', text: typeof daten === 'string' ? daten : JSON.stringify(daten) }] };
+      };
+      mc.registerTool({
+        name: 'reparaturpreis_abfragen',
+        description: 'Liefert die Reparaturpreise von Phone Doctor Frankfurt (Borsigallee 37) für ein Handy, Tablet, MacBook oder eine Smartwatch – z. B. Display, Akku, Ladebuchse. Unverbindliche Richtpreise in Euro.',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            modell: { type: 'string', description: 'Gerätemodell, z. B. "iPhone 13 Pro", "Galaxy S23 Ultra" oder "MacBook Air A1466"' },
+            reparatur: { type: 'string', description: 'Optional: Art der Reparatur, z. B. "Display" oder "Akku"' }
+          },
+          required: ['modell']
+        },
+        execute: function (eingabe) {
+          return fetch('/preise.json').then(function (r) { return r.json(); }).then(function (liste) {
+            var woerter = String(eingabe.modell || '').toLowerCase().split(/\s+/).filter(Boolean);
+            var treffer = liste.filter(function (m) {
+              var name = m.modell.toLowerCase();
+              return woerter.every(function (w) { return name.indexOf(w) !== -1; });
+            }).slice(0, 5);
+            if (!treffer.length) return text('Modell nicht gefunden. Preise auf Anfrage per WhatsApp 0176 80733316 oder unter https://phonedoctorffm.de/preise/');
+            var art = String(eingabe.reparatur || '').toLowerCase();
+            return text(treffer.map(function (m) {
+              var reparaturen = m.reparaturen.filter(function (r) { return !art || r.reparatur.toLowerCase().indexOf(art) !== -1; });
+              return { modell: m.modell, url: m.url, reparaturen: reparaturen };
+            }));
+          });
+        }
+      });
+      mc.registerTool({
+        name: 'kontakt_und_oeffnungszeiten',
+        description: 'Adresse, Öffnungszeiten und Kontaktmöglichkeiten von Phone Doctor Frankfurt.',
+        inputSchema: { type: 'object', properties: {} },
+        execute: function () {
+          return Promise.resolve(text({
+            name: 'Phone Doctor Frankfurt',
+            adresse: 'Borsigallee 37, 60388 Frankfurt am Main (Bergen-Enkheim, am Hessen-Center)',
+            oeffnungszeiten: { 'Mo–Fr': '09:30–17:30', Sa: '11:00–17:00', 'So & Feiertage': 'geschlossen' },
+            telefon: '06109 7196886',
+            whatsapp: '0176 80733316',
+            email: 'info@phonedoctorffm.de',
+            termin: 'Nicht nötig – einfach vorbeikommen'
+          }));
+        }
+      });
+    })();
   </script>
 </head>
 <body>

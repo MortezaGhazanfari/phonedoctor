@@ -29,6 +29,8 @@
 - [Preisrechner und Preisliste](https://phonedoctorffm.de/preise/): Modell wählen, Schaden beschreiben, voraussichtlichen Preis sehen
 - [Häufige Fragen](https://phonedoctorffm.de/faq/)
 - [Kontakt](https://phonedoctorffm.de/kontakt/)
+- [Über uns](https://phonedoctorffm.de/ueber-uns/)
+- [Impressum](https://phonedoctorffm.de/impressum/) · [AGB](https://phonedoctorffm.de/agb/) · [Datenschutz](https://phonedoctorffm.de/datenschutz/)
 
 ## Reparaturpreise nach Modell
 

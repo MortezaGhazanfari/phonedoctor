@@ -1,0 +1,23 @@
+# Zeichensatz für Text-Dateien (llms.txt, Markdown, Sitemap) – sonst zeigen Agenten Umlaute falsch an
+AddDefaultCharset UTF-8
+<IfModule mod_mime.c>
+  AddCharset UTF-8 .txt .md .xml .json
+  AddType text/markdown .md
+  <Files "llms.txt">
+    ForceType text/markdown
+  </Files>
+</IfModule>
+
+# KI-Agenten, die "Accept: text/markdown" senden, bekommen statt der HTML-Seite deren Markdown-Fassung
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_ACCEPT} text/markdown [NC]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/index.md -f
+  RewriteRule ^(.*?)/?$ $1/index.md [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set Link "</llms.txt>; rel=\"describedby\"; type=\"text/markdown\", </sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\""
+  Header append Vary Accept
+</IfModule>

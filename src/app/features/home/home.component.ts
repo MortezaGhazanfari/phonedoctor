@@ -5,6 +5,10 @@ import { RouterLink } from '@angular/router';
 import { CONTACT_CONFIG } from '../../core/contact/contact.config.config';
 import { NavBarComponent } from '../../core/nav-bar/nav-bar.component';
 import { FooterComponent } from "../../core/footer/footer.component";
+import { SeoService } from '../../core/seo/seo.service';
+import { FAQS } from '../../pages/faq/faq-daten';
+
+const STARTSEITEN_FRAGEN = ['Welche Geräte repariert ihr?', 'Wie lange dauert eine Display- oder Akku-Reparatur?', 'Brauche ich einen Termin?', 'Bekomme ich Garantie auf die Reparatur?'];
 
 @Component({
   selector: 'app-home',
@@ -15,6 +19,7 @@ import { FooterComponent } from "../../core/footer/footer.component";
 })
 export class HomeComponent {
   readonly contact = CONTACT_CONFIG;
+  readonly faqs = FAQS.filter((f) => STARTSEITEN_FRAGEN.includes(f.frage));
 
   // Slider für Bildvergleich
   compareValue = 50;
@@ -127,7 +132,17 @@ export class HomeComponent {
   selectedProblems = new Set<string>();
   contactForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, seo: SeoService) {
+    seo.setJsonLd('startseite-faq-jsonld', {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: this.faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.frage,
+        acceptedAnswer: { '@type': 'Answer', text: f.antwort },
+      })),
+    });
+
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       phoneNumber: ['', Validators.required],

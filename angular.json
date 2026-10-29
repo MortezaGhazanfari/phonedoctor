@@ -30,6 +30,12 @@
               "src/robots.txt",
               "src/sitemap.xml",
               "src/llms.txt",
+              "src/.htaccess",
+              {
+                "glob": "**/*",
+                "input": "generated",
+                "output": "/"
+              },
               "src/assets"
             ],
             "styles": [
@@ -101,6 +107,12 @@
               "src/robots.txt",
               "src/sitemap.xml",
               "src/llms.txt",
+              "src/.htaccess",
+              {
+                "glob": "**/*",
+                "input": "generated",
+                "output": "/"
+              },
               "src/assets"
             ],
             "styles": [
