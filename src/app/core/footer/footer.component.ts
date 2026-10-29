@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { CONTACT_CONFIG } from '../contact/contact.config.config';
+import { REPARATUR_SEITEN } from '../../pages/reparatur/reparatur-seiten';
 
 @Component({
   selector: 'app-footer',
@@ -12,6 +13,7 @@ import { CONTACT_CONFIG } from '../contact/contact.config.config';
 })
 export class FooterComponent {
   contact = CONTACT_CONFIG;
+  reparaturSeiten = REPARATUR_SEITEN;
   jahr = new Date().getFullYear();
 
   get whatsappHref(): string {

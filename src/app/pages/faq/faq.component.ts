@@ -1,7 +1,7 @@
-import { Component, Inject } from '@angular/core';
-import { CommonModule, DOCUMENT } from '@angular/common';
-import { Meta } from '@angular/platform-browser';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { SeoService } from '../../core/seo/seo.service';
 import { NavBarComponent } from '../../core/nav-bar/nav-bar.component';
 import { FooterComponent } from '../../core/footer/footer.component';
 import { CONTACT_CONFIG } from '../../core/contact/contact.config.config';
@@ -40,7 +40,7 @@ export class FaqComponent {
     {
       frage: 'Welche Geräte repariert ihr?',
       antwort:
-        'Wir reparieren Smartphones, Tablets, PCs und Laptops, Spielkonsolen, Fernseher und E-Scooter. Auch bei anderen Elektronikgeräten hilft dir unser Team gern weiter – frag einfach nach.',
+        'Wir reparieren Smartphones, Tablets und iPads, Laptops und MacBooks, Smartwatches wie die Apple Watch, PCs, Spielkonsolen, Fernseher und E-Scooter. Auch bei anderen Elektronikgeräten hilft dir unser Team gern weiter – frag einfach nach.',
     },
     {
       frage: 'Welche Marken repariert ihr?',
@@ -90,32 +90,20 @@ export class FaqComponent {
     {
       frage: 'Wo finde ich euch in Frankfurt?',
       antwort:
-        'Du findest uns in der Borsigallee 37, 60388 Frankfurt am Main (Fechenheim, nahe Hessen-Center). Erreichbar sind wir unter 06109 7196886, mobil und per WhatsApp unter 0176 80733316 oder per E-Mail an info@phonedoctorffm.de.',
+        'Du findest uns in der Borsigallee 37, 60388 Frankfurt am Main (Bergen-Enkheim, am Hessen-Center). Erreichbar sind wir unter 06109 7196886, mobil und per WhatsApp unter 0176 80733316 oder per E-Mail an info@phonedoctorffm.de.',
     },
   ];
 
-  constructor(@Inject(DOCUMENT) doc: Document, meta: Meta) {
-    meta.updateTag({
-      name: 'description',
-      content:
-        'Antworten auf häufige Fragen zur Handy-Reparatur in Frankfurt: Kosten, Dauer, Garantie, Wasserschaden, Datenerhalt und mehr – Phone Doctor, Borsigallee 37.',
+  constructor(seo: SeoService) {
+    seo.setJsonLd('faq-jsonld', {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: this.faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.frage,
+        acceptedAnswer: { '@type': 'Answer', text: f.antwort },
+      })),
     });
-
-    if (!doc.getElementById('faq-jsonld')) {
-      const script = doc.createElement('script');
-      script.id = 'faq-jsonld';
-      script.type = 'application/ld+json';
-      script.text = JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: this.faqs.map((f) => ({
-          '@type': 'Question',
-          name: f.frage,
-          acceptedAnswer: { '@type': 'Answer', text: f.antwort },
-        })),
-      });
-      doc.head.appendChild(script);
-    }
   }
 
   get whatsappHref(): string {

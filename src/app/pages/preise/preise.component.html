@@ -124,6 +124,15 @@
       </p>
     </div>
 
+    <div class="geraete-links">
+      <h2>Reparatur nach Gerät</h2>
+      <ul>
+        <li *ngFor="let s of reparaturSeiten">
+          <a [routerLink]="['/reparatur', s.slug]">{{ s.kurzname }}</a>
+        </li>
+      </ul>
+    </div>
+
     <!-- Vollständige Preisliste (auch für Suchmaschinen & KI lesbar) -->
     <div class="preisliste">
       <h2>Reparatur-Preisliste Frankfurt: Display, Akku & Ladebuchse</h2>
@@ -148,7 +157,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let z of g.zeilen">
-                <td>{{ z.name }}</td>
+                <td><a [routerLink]="['/preise', z.slug]">{{ z.name }}</a></td>
                 <td>{{ z.display !== null ? 'ab ' + z.display + ' €' : 'auf Anfrage' }}</td>
                 <td>{{ z.akku !== null ? 'ab ' + z.akku + ' €' : 'auf Anfrage' }}</td>
                 <td>{{ z.ladebuchse !== null ? 'ab ' + z.ladebuchse + ' €' : 'auf Anfrage' }}</td>

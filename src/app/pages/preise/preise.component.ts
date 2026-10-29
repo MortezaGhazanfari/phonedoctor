@@ -1,18 +1,15 @@
-import { Component, Inject } from '@angular/core';
-import { CommonModule, DOCUMENT } from '@angular/common';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Meta } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import { NavBarComponent } from '../../core/nav-bar/nav-bar.component';
 import { FooterComponent } from '../../core/footer/footer.component';
 import { CONTACT_CONFIG } from '../../core/contact/contact.config.config';
+import { SITE_URL, SeoService } from '../../core/seo/seo.service';
 import { DeviceModel, GENERAL_SERVICES, PRICE_DATA, PriceEntry } from './price-data';
-
-interface Kategorie {
-  id: string;
-  label: string;
-  keywords: string[];
-}
+import { KATEGORIEN, Kategorie } from './reparatur-kategorien';
+import { abPreis, abPreisFuer, anzeigeName, modellSlug } from './geraete';
+import { REPARATUR_SEITEN } from '../reparatur/reparatur-seiten';
 
 interface Ergebnis {
   id: string;
@@ -22,98 +19,11 @@ interface Ergebnis {
 
 interface ListenZeile {
   name: string;
+  slug: string;
   display: number | null;
   akku: number | null;
   ladebuchse: number | null;
 }
-
-const KATEGORIEN: Kategorie[] = [
-  {
-    id: 'wasserschaden',
-    label: 'Wasserschaden',
-    keywords: ['wasser', 'nass', 'flüssigkeit', 'pool', 'meer', 'waschmaschine', 'toilette', 'regen', 'getränk'],
-  },
-  {
-    id: 'akku',
-    label: 'Akku',
-    keywords: ['akku', 'batterie', 'schnell leer', 'hält nicht', 'geht schnell aus', 'aufgebläht'],
-  },
-  {
-    id: 'ladebuchse',
-    label: 'Ladebuchse',
-    keywords: ['lädt nicht', 'laedt nicht', 'laden', 'ladekabel', 'ladebuchse', 'buchse', 'stecker', 'usb', 'wackelkontakt'],
-  },
-  {
-    id: 'kameraglas',
-    label: 'Kameraglas',
-    keywords: ['kameraglas', 'kamera glas', 'linse'],
-  },
-  {
-    id: 'kamera',
-    label: 'Kamera',
-    keywords: ['kamera', 'foto', 'unscharf', 'selfie'],
-  },
-  {
-    id: 'backcover',
-    label: 'Rückseite / Backcover',
-    keywords: ['rückseite', 'rueckseite', 'backcover', 'hinten kaputt', 'rückglas', 'hinterseite'],
-  },
-  {
-    id: 'hoermuschel',
-    label: 'Hörmuschel',
-    keywords: ['hörmuschel', 'hoermuschel', 'höre nichts', 'schlecht hören', 'beim telefonieren leise'],
-  },
-  {
-    id: 'lautsprecher',
-    label: 'Lautsprecher',
-    keywords: ['lautsprecher', 'ton', 'leise', 'musik', 'klingelton', 'kein sound'],
-  },
-  {
-    id: 'staubnetz',
-    label: 'Staubnetz / Lautsprecher-Reinigung',
-    keywords: ['staub', 'staubnetz', 'dreck im lautsprecher'],
-  },
-  {
-    id: 'mikrofon',
-    label: 'Mikrofon',
-    keywords: ['mikrofon', 'mikro', 'versteht mich nicht', 'hört mich nicht'],
-  },
-  {
-    id: 'sim',
-    label: 'SIM-Kartenleser',
-    keywords: ['sim'],
-  },
-  {
-    id: 'kopfhoererbuchse',
-    label: 'Kopfhörerbuchse',
-    keywords: ['kopfhörer', 'kopfhoerer', 'aux'],
-  },
-  {
-    id: 'tastatur',
-    label: 'Tastatur',
-    keywords: ['tastatur', 'taste'],
-  },
-  {
-    id: 'datenrettung',
-    label: 'Datenrettung',
-    keywords: ['datenrettung', 'daten retten', 'fotos retten', 'daten wichtig'],
-  },
-  {
-    id: 'glas',
-    label: 'Frontglas / Touchscreen',
-    keywords: ['nur glas', 'touchscreen', 'touch geht nicht', 'reagiert nicht'],
-  },
-  {
-    id: 'display',
-    label: 'Display / Bildschirm',
-    keywords: ['display', 'bildschirm', 'scheibe', 'glas', 'riss', 'gesprungen', 'gebrochen', 'anzeige', 'kein bild', 'schwarzes bild', 'streifen', 'pixel', 'flecken', 'runtergefallen', 'gefallen'],
-  },
-  {
-    id: 'komplett',
-    label: 'Komplett-Tausch',
-    keywords: ['komplett', 'austauschgerät', 'tauschgerät'],
-  },
-];
 
 const DIAGNOSE_KEYWORDS = ['geht nicht an', 'geht nicht mehr an', 'startet nicht', 'bleibt aus', 'ist tot', 'keine reaktion', 'weiß nicht', 'weiss nicht', 'keine ahnung'];
 
@@ -127,6 +37,7 @@ const DIAGNOSE_KEYWORDS = ['geht nicht an', 'geht nicht mehr an', 'startet nicht
 export class PreiseComponent {
   contact = CONTACT_CONFIG;
   general = GENERAL_SERVICES;
+  reparaturSeiten = REPARATUR_SEITEN;
 
   preisliste: { brand: string; zeilen: ListenZeile[] }[] = [];
 
@@ -138,62 +49,46 @@ export class PreiseComponent {
   ergebnisse: Ergebnis[] = [];
   diagnoseHinweis = false;
 
-  constructor(@Inject(DOCUMENT) doc: Document, meta: Meta) {
-    meta.updateTag({
-      name: 'description',
-      content:
-        'Was kostet deine Handy-Reparatur? Gerät wählen, Schaden beschreiben und sofort den voraussichtlichen Preis sehen – für iPhone, Samsung Galaxy und über 350 Modelle. Phone Doctor Frankfurt.',
-    });
-
-    const minPreis = (e?: PriceEntry[]) => (e && e.length ? e[0].p : null);
+  constructor(seo: SeoService) {
     const marken = ['Apple', 'Samsung', 'Google', 'Huawei', 'Sony', 'Microsoft'];
     this.preisliste = marken
       .map((b) => ({
         brand: b,
         zeilen: PRICE_DATA.filter((m) => m.brand === b).map((m) => ({
-          name: m.name,
-          display: minPreis(m.repairs['display']),
-          akku: minPreis(m.repairs['akku']),
-          ladebuchse: minPreis(m.repairs['ladebuchse']),
+          name: anzeigeName(m),
+          slug: modellSlug(m),
+          display: abPreis(m.repairs['display']),
+          akku: abPreis(m.repairs['akku']),
+          ladebuchse: abPreis(m.repairs['ladebuchse']),
         })),
       }))
       .filter((g) => g.zeilen.length > 0);
 
-    if (!doc.getElementById('preise-jsonld')) {
-      const alleMin = (cat: string) => {
-        const preise = PRICE_DATA.map((m) => minPreis(m.repairs[cat])).filter((p): p is number => p !== null);
-        return preise.length ? Math.min(...preise) : null;
-      };
-      const angebote = [
-        { name: 'Display-Reparatur', cat: 'display' },
-        { name: 'Akku-Tausch', cat: 'akku' },
-        { name: 'Ladebuchsen-Reparatur', cat: 'ladebuchse' },
-        { name: 'Kamera-Reparatur', cat: 'kamera' },
-        { name: 'Backcover-Tausch', cat: 'backcover' },
-      ]
-        .map((a) => ({ ...a, min: alleMin(a.cat) }))
-        .filter((a) => a.min !== null)
-        .map((a) => ({
-          '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: `${a.name} (Smartphone/Tablet)`, areaServed: 'Frankfurt am Main' },
-          priceSpecification: {
-            '@type': 'PriceSpecification',
-            minPrice: a.min,
-            priceCurrency: 'EUR',
-          },
-        }));
-      const script = doc.createElement('script');
-      script.id = 'preise-jsonld';
-      script.type = 'application/ld+json';
-      script.text = JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'OfferCatalog',
-        name: 'Reparatur-Preise Phone Doctor Frankfurt',
-        url: 'https://phonedoctorffm.de/preise',
-        itemListElement: angebote,
-      });
-      doc.head.appendChild(script);
-    }
+    const angebote = [
+      { name: 'Display-Reparatur', cat: 'display' },
+      { name: 'Akku-Tausch', cat: 'akku' },
+      { name: 'Ladebuchsen-Reparatur', cat: 'ladebuchse' },
+      { name: 'Kamera-Reparatur', cat: 'kamera' },
+      { name: 'Backcover-Tausch', cat: 'backcover' },
+    ]
+      .map((a) => ({ ...a, min: abPreisFuer(PRICE_DATA, a.cat) }))
+      .filter((a) => a.min !== null)
+      .map((a) => ({
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: `${a.name} (Smartphone/Tablet)`, areaServed: 'Frankfurt am Main' },
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          minPrice: a.min,
+          priceCurrency: 'EUR',
+        },
+      }));
+    seo.setJsonLd('preise-jsonld', {
+      '@context': 'https://schema.org',
+      '@type': 'OfferCatalog',
+      name: 'Reparatur-Preise Phone Doctor Frankfurt',
+      url: `${SITE_URL}/preise/`,
+      itemListElement: angebote,
+    });
   }
 
   sucheGeaendert(wert: string): void {
@@ -248,7 +143,6 @@ export class PreiseComponent {
         treffer.push({ id: k.id, label: k.label, eintraege: this.modell.repairs[k.id] });
       }
     }
-    // Kameraglas gewinnt gegen Kamera, Glas gegen Display nur wenn beides matcht? Beide zeigen ist ehrlicher.
     this.ergebnisse = treffer;
     if (treffer.length === 0 && !this.diagnoseHinweis) {
       this.diagnoseHinweis = true;

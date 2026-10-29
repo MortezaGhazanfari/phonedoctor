@@ -1,0 +1,84 @@
+<app-nav-bar></app-nav-bar>
+
+<main class="page reparatur-page">
+  <section class="section" *ngIf="seite; else nichtGefunden">
+    <nav class="breadcrumb" aria-label="Brotkrümel">
+      <a routerLink="/">Startseite</a> › <span>{{ seite.kurzname }}</span>
+    </nav>
+
+    <h1>{{ seite.h1 }}</h1>
+    <p class="section-subtitle" *ngFor="let absatz of seite.intro">{{ absatz }}</p>
+    <p>{{ seite.marken }}</p>
+
+    <div class="cta-buttons">
+      <a class="btn primary" routerLink="/preise">💶 Preis für dein Modell berechnen</a>
+      <a class="btn whatsapp" [href]="whatsappHref" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+      <a class="btn tel" [href]="'tel:' + contact.phone">☎️ {{ contact.phone }}</a>
+    </div>
+
+    <h2>Häufige Schäden und Preise</h2>
+    <div class="problem-liste">
+      <article class="problem" *ngFor="let p of probleme">
+        <h3>{{ p.titel }}</h3>
+        <p>{{ p.text }}</p>
+        <p class="preis" *ngIf="p.ab !== null">ab {{ p.ab }} €</p>
+        <p class="preis" *ngIf="p.ab === null">Preis nach Diagnose</p>
+      </article>
+    </div>
+    <p class="hinweis">
+      Unverbindliche Richtpreise, Stand August 2026 – der genaue Preis hängt vom
+      Modell und der Ersatzteil-Qualität ab. Fehlerdiagnose mit
+      Kostenvoranschlag: {{ general.kva }} € (bei Wasserschaden {{ general.wasserKva }} €).
+    </p>
+
+    <div class="modell-links" *ngIf="markenGruppen.length">
+      <h2>Preise für dein Modell</h2>
+      <div *ngFor="let g of markenGruppen">
+        <h3>{{ g.marke }}</h3>
+        <ul>
+          <li *ngFor="let m of g.modelle">
+            <a [routerLink]="['/preise', m.slug]">{{ m.name }}</a>
+          </li>
+        </ul>
+      </div>
+      <p class="hinweis">Dein Modell ist nicht dabei? Schreib uns – wir reparieren auch viele weitere Geräte.</p>
+    </div>
+
+    <h2>Häufige Fragen</h2>
+    <div class="faq-liste">
+      <article *ngFor="let f of faqs">
+        <h3>{{ f.frage }}</h3>
+        <p>{{ f.antwort }}</p>
+      </article>
+    </div>
+
+    <div class="kontakt-box">
+      <h2>So findest du uns</h2>
+      <p>
+        <strong>Phone Doctor</strong><br />
+        {{ contact.address }} (am Hessen-Center)<br />
+        <span *ngFor="let oh of contact.openingHours">{{ oh.label }}: {{ oh.time }}<br /></span>
+        WhatsApp: <a [href]="whatsappHref" target="_blank" rel="noopener noreferrer">{{ contact.mobilePhone }}</a> ·
+        E-Mail: <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
+      </p>
+    </div>
+
+    <div class="verwandt">
+      <h2>Weitere Reparaturen</h2>
+      <ul>
+        <li *ngFor="let s of andereSeiten">
+          <a [routerLink]="['/reparatur', s.slug]">{{ s.kurzname }}</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <ng-template #nichtGefunden>
+    <section class="section">
+      <h1>Seite nicht gefunden</h1>
+      <p>Hier geht's zum <a routerLink="/preise">Preisrechner</a> und zur <a routerLink="/">Startseite</a>.</p>
+    </section>
+  </ng-template>
+</main>
+
+<app-footer></app-footer>

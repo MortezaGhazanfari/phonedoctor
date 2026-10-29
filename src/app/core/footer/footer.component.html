@@ -24,6 +24,16 @@
       </ul>
     </div>
 
+    <!-- Leistungen -->
+    <div>
+      <h4>Reparaturen</h4>
+      <ul>
+        <li *ngFor="let s of reparaturSeiten">
+          <a [routerLink]="['/reparatur', s.slug]">{{ s.kurzname }}</a>
+        </li>
+      </ul>
+    </div>
+
     <!-- Rechtliches -->
     <div>
       <h4>Rechtliches</h4>
