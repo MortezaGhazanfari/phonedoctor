@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { CONTACT_CONFIG } from '../contact/contact.config.config';
+import { CONTACT_CONFIG, telefonAnzeige } from '../contact/contact.config.config';
 import { REPARATUR_SEITEN } from '../../pages/reparatur/reparatur-seiten';
 
 @Component({
@@ -15,6 +15,7 @@ export class FooterComponent {
   contact = CONTACT_CONFIG;
   reparaturSeiten = REPARATUR_SEITEN;
   jahr = new Date().getFullYear();
+  telefonAnzeige = telefonAnzeige;
 
   get whatsappHref(): string {
     const digits = this.contact.whatsapp.replace(/\D/g, '');

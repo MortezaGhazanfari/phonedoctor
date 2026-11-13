@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from '../../core/nav-bar/nav-bar.component';
 import { FooterComponent } from '../../core/footer/footer.component';
-import { CONTACT_CONFIG } from '../../core/contact/contact.config.config';
+import { CONTACT_CONFIG, telefonAnzeige } from '../../core/contact/contact.config.config';
 
 @Component({
   selector: 'app-kontakt-page',
@@ -13,6 +13,7 @@ import { CONTACT_CONFIG } from '../../core/contact/contact.config.config';
 })
 export class KontaktComponent {
   contact = CONTACT_CONFIG;
+  telefonAnzeige = telefonAnzeige;
 
   get whatsappHref(): string {
     const digits = this.contact.whatsapp.replace(/\D/g, '');

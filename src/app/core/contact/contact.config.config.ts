@@ -15,6 +15,13 @@ export interface ContactConfig {
   openingHours: OpeningHours[];
 }
 
+// Anzeigeform wie im llms.txt: Mobilvorwahlen (01x) sind vierstellig, die Festnetzvorwahl 06109 fünfstellig.
+export function telefonAnzeige(nr: string): string {
+  const national = nr.replace(/^\+49/, '0');
+  const vorwahl = national.startsWith('01') ? 4 : 5;
+  return `${national.slice(0, vorwahl)} ${national.slice(vorwahl)}`;
+}
+
 export const CONTACT_CONFIG: ContactConfig = {
   shopName: 'Phone Doctor',
   address: 'Borsigallee 37, 60388 Frankfurt',

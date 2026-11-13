@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { CONTACT_CONFIG } from '../../core/contact/contact.config.config';
+import { CONTACT_CONFIG, telefonAnzeige } from '../../core/contact/contact.config.config';
 import { NavBarComponent } from '../../core/nav-bar/nav-bar.component';
 import { FooterComponent } from "../../core/footer/footer.component";
 import { SeoService } from '../../core/seo/seo.service';
@@ -287,12 +287,9 @@ export class HomeComponent {
     this.closeModal();
   }
   get contactFormatted() {
-  const format = (num: string) =>
-    num.replace(/^\+49(\d{3})(\d{6,})$/, '+49 $1 $2');
-
   return {
-    phone: format(this.contact.phone),
-    mobilePhone: format(this.contact.mobilePhone),
+    phone: telefonAnzeige(this.contact.phone),
+    mobilePhone: telefonAnzeige(this.contact.mobilePhone),
     email: this.contact.email,
   };
 }

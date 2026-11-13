@@ -18,11 +18,11 @@
           </li>
           <li>
             ☎️ Festnetz:
-            <a [href]="telFestnetzHref">{{ contact.phone }}</a>
+            <a [href]="telFestnetzHref">{{ telefonAnzeige(contact.phone) }}</a>
           </li>
           <li>
             📱 Mobil:
-            <a [href]="telMobilHref">{{ contact.mobilePhone }}</a>
+            <a [href]="telMobilHref">{{ telefonAnzeige(contact.mobilePhone) }}</a>
           </li>
           <li>
             📧 E-Mail:

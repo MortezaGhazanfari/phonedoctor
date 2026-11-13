@@ -17,8 +17,8 @@
       <h4>Kontakt</h4>
       <ul>
         <li>📍 {{ contact.address }}</li>
-        <li>☎️ <a [href]="'tel:' + contact.phone">{{ contact.phone }}</a></li>
-        <li>📱 <a [href]="'tel:' + contact.mobilePhone">{{ contact.mobilePhone }}</a></li>
+        <li>☎️ <a [href]="'tel:' + contact.phone">{{ telefonAnzeige(contact.phone) }}</a></li>
+        <li>📱 <a [href]="'tel:' + contact.mobilePhone">{{ telefonAnzeige(contact.mobilePhone) }}</a></li>
         <li>📧 <a [href]="'mailto:' + contact.email">{{ contact.email }}</a></li>
         <li>💬 <a [href]="whatsappHref" target="_blank">WhatsApp Chat</a></li>
       </ul>
