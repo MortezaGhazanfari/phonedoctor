@@ -126,7 +126,7 @@ export class ModellComponent {
     }
     faqs.push({
       frage: `Wo kann ich mein ${this.name} in Frankfurt reparieren lassen?`,
-      antwort: `Bei Phone Doctor in der Borsigallee 37, 60388 Frankfurt am Main (Bergen-Enkheim, am Hessen-Center). Du kannst ohne Termin vorbeikommen: Mo–Fr 09:30–17:30 Uhr, Sa 11:00–17:00 Uhr.`,
+      antwort: `Bei Phone Doctor in der Borsigallee 37, 60388 Frankfurt am Main (Bergen-Enkheim, gegenüber dem Hessen-Center). Du kannst ohne Termin vorbeikommen: Mo–Fr 09:30–17:30 Uhr, Sa 11:00–17:00 Uhr.`,
     });
     faqs.push({
       frage: `Wie lange dauert die Reparatur meines ${this.name}?`,

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { NavBarComponent } from '../../core/nav-bar/nav-bar.component';
 import { FooterComponent } from '../../core/footer/footer.component';
 import { CONTACT_CONFIG, telefonAnzeige } from '../../core/contact/contact.config.config';
@@ -7,7 +8,7 @@ import { CONTACT_CONFIG, telefonAnzeige } from '../../core/contact/contact.confi
 @Component({
   selector: 'app-kontakt-page',
   standalone: true,
-  imports: [CommonModule, NavBarComponent, FooterComponent],
+  imports: [CommonModule, RouterLink, NavBarComponent, FooterComponent],
   templateUrl: './kontakt.component.html',
   styleUrls: ['./kontakt.component.scss']
 })

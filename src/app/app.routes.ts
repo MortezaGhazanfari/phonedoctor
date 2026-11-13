@@ -8,7 +8,7 @@ export const routes: Routes = [
     title: 'Handy Reparatur Frankfurt – Display, Akku & mehr | Phone Doctor',
     data: {
       description:
-        'Handy, iPhone, Tablet, MacBook, Laptop & Smartwatch Reparatur in Frankfurt (Borsigallee 37, am Hessen-Center). Display, Akku, Ladebuchse – schnell, fair, mit Gewährleistung.',
+        'Handy, iPhone, Tablet, MacBook, Laptop & Smartwatch Reparatur in Frankfurt (Borsigallee 37, gegenüber dem Hessen-Center). Display, Akku, Ladebuchse – schnell, fair, mit Gewährleistung.',
     },
   },
 
@@ -46,10 +46,10 @@ export const routes: Routes = [
     path: 'ueber-uns',
     loadComponent: () =>
       import('./pages/ueber-uns/ueber-uns.component').then(m => m.UeberUnsComponent),
-    title: 'Über uns – Phone Doctor Frankfurt, Handy-Reparatur am Hessen-Center',
+    title: 'Über uns – Phone Doctor Frankfurt, Handy-Reparatur gegenüber dem Hessen-Center',
     data: {
       description:
-        'Phone Doctor ist eine Reparaturwerkstatt für Handys, Tablets, Laptops, MacBooks und Smartwatches in Frankfurt-Bergen-Enkheim (Borsigallee 37, am Hessen-Center). Inhaber: Morteza Ghazanfari.',
+        'Phone Doctor ist eine Reparaturwerkstatt für Handys, Tablets, Laptops, MacBooks und Smartwatches in Frankfurt-Bergen-Enkheim (Borsigallee 37, gegenüber dem Hessen-Center). Inhaber: Morteza Ghazanfari.',
     },
   },
   {
@@ -60,6 +60,16 @@ export const routes: Routes = [
     data: {
       description:
         'Kontakt & Öffnungszeiten von Phone Doctor Frankfurt: Borsigallee 37, 60388 Frankfurt. Telefon 06109 7196886, WhatsApp 0176 80733316, info@phonedoctorffm.de.',
+    },
+  },
+  {
+    path: 'anfahrt',
+    loadComponent: () =>
+      import('./pages/anfahrt/anfahrt.component').then(m => m.AnfahrtComponent),
+    title: 'Anfahrt – Phone Doctor gegenüber dem Hessen-Center, Frankfurt-Bergen-Enkheim',
+    data: {
+      description:
+        'So findest du Phone Doctor: Borsigallee 37, 60388 Frankfurt-Bergen-Enkheim, direkt gegenüber dem Hessen-Center (nicht im Einkaufszentrum). U7 Haltestelle Hessen-Center, A66 Ausfahrt Bergen-Enkheim.',
     },
   },
   {

@@ -72,6 +72,11 @@ export const FAQS: FaqEntry[] = [
   {
     frage: 'Wo finde ich euch in Frankfurt?',
     antwort:
-      'Du findest uns in der Borsigallee 37, 60388 Frankfurt am Main (Bergen-Enkheim, am Hessen-Center). Erreichbar sind wir unter 06109 7196886, mobil und per WhatsApp unter 0176 80733316 oder per E-Mail an info@phonedoctorffm.de.',
+      'Du findest uns in der Borsigallee 37, 60388 Frankfurt am Main (Bergen-Enkheim, gegenüber dem Hessen-Center). Erreichbar sind wir unter 06109 7196886, mobil und per WhatsApp unter 0176 80733316 oder per E-Mail an info@phonedoctorffm.de.',
+  },
+  {
+    frage: 'Seid ihr im Hessen-Center?',
+    antwort:
+      'Nein. Unser Laden ist nicht im Einkaufszentrum, sondern direkt gegenüber dem Hessen-Center auf der anderen Straßenseite: Borsigallee 37, 60388 Frankfurt-Bergen-Enkheim. Vom Hessen-Center sind es nur ein paar Schritte zu uns.',
   },
 ];

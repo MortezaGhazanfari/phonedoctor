@@ -1,0 +1,48 @@
+<app-nav-bar></app-nav-bar>
+
+<main class="page reparatur-page">
+  <section class="section">
+    <h1>Anfahrt zu Phone Doctor – gegenüber dem Hessen-Center</h1>
+
+    <p class="section-subtitle">{{ lage }}</p>
+
+    <p>
+      <a [href]="routeGoogle" target="_blank" rel="noopener noreferrer">Route mit Google Maps</a>
+      ·
+      <a [href]="routeApple" target="_blank" rel="noopener noreferrer">Route mit Apple Karten</a>
+    </p>
+
+    <h2>So kommst du zu uns</h2>
+    <ul>
+      <li *ngFor="let w of wege"><strong>{{ w.titel }}:</strong> {{ w.text }}</li>
+    </ul>
+
+    <h2>Handy-Reparatur für Frankfurt-Ost und Umgebung</h2>
+    <p>
+      Aus diesen Stadtteilen ist der Weg zu uns besonders kurz:
+      {{ stadtteile.join(', ') }}. Auch aus {{ umland.join(', ') }} bist du schnell bei uns.
+      Ein Termin ist nicht nötig – komm einfach während der Öffnungszeiten vorbei.
+    </p>
+    <ul>
+      <li *ngFor="let s of reparaturSeiten">
+        <a [routerLink]="['/reparatur', s.slug]">{{ s.kurzname }}</a>
+      </li>
+    </ul>
+    <p>
+      Was deine Reparatur kostet, siehst du vorab im <a routerLink="/preise">Preisrechner</a>.
+    </p>
+
+    <div class="kontakt-box">
+      <h2>Adresse und Öffnungszeiten</h2>
+      <p>
+        <strong>Phone Doctor</strong><br />
+        {{ contact.address }} (Bergen-Enkheim, gegenüber dem Hessen-Center)<br />
+        <span *ngFor="let oh of contact.openingHours">{{ oh.label }}: {{ oh.time }}<br /></span>
+        Telefon: <a [href]="'tel:' + contact.phone">{{ telefonAnzeige(contact.phone) }}</a> ·
+        Mobil &amp; WhatsApp: <a [href]="'tel:' + contact.mobilePhone">{{ telefonAnzeige(contact.mobilePhone) }}</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

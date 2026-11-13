@@ -16,7 +16,7 @@ const { outputFiles } = buildSync({
   write: false,
 });
 const daten = await import(`data:text/javascript;base64,${Buffer.from(outputFiles[0].text).toString('base64')}`);
-const { PRICE_DATA, REPARATUR_SEITEN, KATEGORIEN, CONTACT_CONFIG, SITE_URL, FAQS, modelleFuer, abPreis, abPreisFuer, anzeigeName, modellSlug } = daten;
+const { PRICE_DATA, REPARATUR_SEITEN, KATEGORIEN, CONTACT_CONFIG, SITE_URL, FAQS, ANFAHRT_LAGE, ANFAHRT_WEGE, STADTTEILE, UMLAND, modelleFuer, abPreis, abPreisFuer, anzeigeName, modellSlug } = daten;
 
 const heute = new Date().toISOString().slice(0, 10);
 const url = (pfad) => `${SITE_URL}${pfad === '/' ? '/' : `${pfad}/`}`;
@@ -40,6 +40,7 @@ const sitemapEintraege = [
   ...reparaturPfade.map((p) => [p, '0.9']),
   ['/faq', '0.8'],
   ['/kontakt', '0.8'],
+  ['/anfahrt', '0.7'],
   ['/ueber-uns', '0.6'],
   ...modellPfade.map((p) => [p, '0.6']),
   ['/impressum', '0.2'],
@@ -75,7 +76,7 @@ const abText = (modelle, kategorien) =>
 const zeilen = [
   '# Phone Doctor Frankfurt',
   '',
-  `> Reparaturwerkstatt für Handys, iPhones, Samsung Galaxy, Tablets und iPads, MacBooks und Laptops sowie Smartwatches aller Marken in Frankfurt am Main (${CONTACT_CONFIG.address}, Bergen-Enkheim, am Hessen-Center). Display-Tausch, Akku-Tausch, Ladebuchse, Rückglas, Kamera, Wasserschaden und Datenrettung – viele Reparaturen am selben Tag, ohne Termin.`,
+  `> Reparaturwerkstatt für Handys, iPhones, Samsung Galaxy, Tablets und iPads, MacBooks und Laptops sowie Smartwatches aller Marken in Frankfurt am Main (${CONTACT_CONFIG.address}, Bergen-Enkheim, gegenüber dem Hessen-Center). Display-Tausch, Akku-Tausch, Ladebuchse, Rückglas, Kamera, Wasserschaden und Datenrettung – viele Reparaturen am selben Tag, ohne Termin.`,
   '',
   '## Kontakt und Öffnungszeiten',
   '',
@@ -99,6 +100,7 @@ const zeilen = [
   `- [Preisrechner und Preisliste](${url('/preise')}): Modell wählen, Schaden beschreiben, voraussichtlichen Preis sehen`,
   `- [Häufige Fragen](${url('/faq')})`,
   `- [Kontakt](${url('/kontakt')})`,
+  `- [Anfahrt](${url('/anfahrt')}): direkt gegenüber dem Hessen-Center (nicht im Einkaufszentrum), U7 Haltestelle Hessen-Center`,
   `- [Über uns](${url('/ueber-uns')})`,
   `- [Impressum](${url('/impressum')}) · [AGB](${url('/agb')}) · [Datenschutz](${url('/datenschutz')})`,
   '',
@@ -129,7 +131,7 @@ const qualitaet = (q) => (!q ? 'Austausch / Reparatur' : q === 'ab' ? 'Preis ab'
 const kontaktMd = [
   '## Kontakt',
   '',
-  `- Phone Doctor, ${CONTACT_CONFIG.address} (Bergen-Enkheim, am Hessen-Center)`,
+  `- Phone Doctor, ${CONTACT_CONFIG.address} (Bergen-Enkheim, gegenüber dem Hessen-Center)`,
   ...CONTACT_CONFIG.openingHours.map((oh) => `- ${oh.label}: ${oh.time}`),
   `- Telefon ${telefon(CONTACT_CONFIG.phone)}, WhatsApp ${telefon(CONTACT_CONFIG.mobilePhone)}, E-Mail ${CONTACT_CONFIG.email}`,
 ];
@@ -196,6 +198,18 @@ schreibeMd('/faq', [
 ]);
 
 schreibeMd('/kontakt', ['# Kontakt – Phone Doctor Frankfurt', '', ...kontaktMd.slice(2)]);
+
+schreibeMd('/anfahrt', [
+  '# Anfahrt zu Phone Doctor – gegenüber dem Hessen-Center',
+  '',
+  ANFAHRT_LAGE,
+  '',
+  ...ANFAHRT_WEGE.map((w) => `- **${w.titel}:** ${w.text}`),
+  '',
+  `Kurzer Weg aus ${STADTTEILE.join(', ')} sowie aus ${UMLAND.join(', ')}.`,
+  '',
+  ...kontaktMd,
+]);
 
 writeFileSync(
   resolve(gen, 'preise.json'),

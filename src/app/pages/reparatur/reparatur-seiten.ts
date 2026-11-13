@@ -34,7 +34,7 @@ const ALLGEMEINE_FAQS: Faq[] = [
   {
     frage: 'Brauche ich einen Termin?',
     antwort:
-      'Nein. Komm einfach während der Öffnungszeiten in die Borsigallee 37 (Frankfurt-Bergen-Enkheim, am Hessen-Center): Montag bis Freitag 09:30–17:30 Uhr, Samstag 11:00–17:00 Uhr. Wenn du sichergehen willst, dass dein Ersatzteil vorrätig ist, schreib uns vorher kurz per WhatsApp.',
+      'Nein. Komm einfach während der Öffnungszeiten in die Borsigallee 37 (Frankfurt-Bergen-Enkheim, gegenüber dem Hessen-Center): Montag bis Freitag 09:30–17:30 Uhr, Samstag 11:00–17:00 Uhr. Wenn du sichergehen willst, dass dein Ersatzteil vorrätig ist, schreib uns vorher kurz per WhatsApp.',
   },
   {
     frage: 'Bekomme ich Garantie auf die Reparatur?',
@@ -55,7 +55,7 @@ export const REPARATUR_SEITEN: ReparaturSeite[] = [
       'Handy kaputt? Display gebrochen, Akku schlecht oder lädt nicht mehr? Phone Doctor in Frankfurt (Borsigallee 37) repariert Smartphones aller Marken – oft am selben Tag. Preise ab sofort online.',
     intro: [
       'Display gebrochen, Akku hält nicht mehr, das Handy lädt nicht oder ist ins Wasser gefallen? Bei Phone Doctor in Frankfurt reparieren wir Smartphones aller gängigen Marken – viele Reparaturen wie Display- oder Akku-Tausch sind noch am selben Tag fertig, oft während du wartest.',
-      'Du findest uns in der Borsigallee 37 in Frankfurt-Bergen-Enkheim, direkt am Hessen-Center und gut erreichbar aus Seckbach, Fechenheim, Riederwald, Bornheim und Maintal. Vor jeder Reparatur bekommst du einen klaren Preis – ohne Überraschungen.',
+      'Du findest uns in der Borsigallee 37 in Frankfurt-Bergen-Enkheim, direkt gegenüber dem Hessen-Center und gut erreichbar aus Seckbach, Fechenheim, Riederwald, Bornheim und Maintal. Vor jeder Reparatur bekommst du einen klaren Preis – ohne Überraschungen.',
     ],
     marken:
       'Wir reparieren iPhone, Samsung Galaxy, Google Pixel, Huawei, Sony Xperia, Xiaomi, OnePlus, Oppo, Motorola und weitere Marken.',
@@ -72,7 +72,7 @@ export const REPARATUR_SEITEN: ReparaturSeite[] = [
       {
         frage: 'Wo kann ich mein Handy in Frankfurt reparieren lassen?',
         antwort:
-          'Bei Phone Doctor in der Borsigallee 37, 60388 Frankfurt am Main (Bergen-Enkheim, am Hessen-Center). Wir reparieren Smartphones aller gängigen Marken, du kannst ohne Termin vorbeikommen.',
+          'Bei Phone Doctor in der Borsigallee 37, 60388 Frankfurt am Main (Bergen-Enkheim, gegenüber dem Hessen-Center). Wir reparieren Smartphones aller gängigen Marken, du kannst ohne Termin vorbeikommen.',
       },
       {
         frage: 'Wie lange dauert eine Handy-Reparatur?',

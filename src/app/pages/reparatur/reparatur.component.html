@@ -56,7 +56,7 @@
       <h2>So findest du uns</h2>
       <p>
         <strong>Phone Doctor</strong><br />
-        {{ contact.address }} (am Hessen-Center)<br />
+        {{ contact.address }} (gegenüber dem Hessen-Center)<br />
         <span *ngFor="let oh of contact.openingHours">{{ oh.label }}: {{ oh.time }}<br /></span>
         WhatsApp: <a [href]="whatsappHref" target="_blank" rel="noopener noreferrer">{{ contact.mobilePhone }}</a> ·
         E-Mail: <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
