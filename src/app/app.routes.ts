@@ -8,7 +8,7 @@ export const routes: Routes = [
     title: 'Handy Reparatur Frankfurt – Display, Akku & mehr | Phone Doctor',
     data: {
       description:
-        'Handy, iPhone, Tablet, MacBook, Laptop & Smartwatch Reparatur in Frankfurt (Borsigallee 37, gegenüber dem Hessen-Center). Display, Akku, Ladebuchse – schnell, fair, mit Gewährleistung.',
+        'Handy, iPhone, Tablet, MacBook, Laptop & Smartwatch Reparatur in Frankfurt (Borsigallee 37, gegenüber dem Hessen-Center). Display, Akku, Ladebuchse – schnell, fair, mit 6 Monaten Garantie.',
     },
   },
 
@@ -19,7 +19,7 @@ export const routes: Routes = [
     title: 'Reparatur-Preise & Preisrechner – Phone Doctor Frankfurt',
     data: {
       description:
-        'Was kostet deine Handy-Reparatur? Gerät wählen, Schaden beschreiben und sofort den voraussichtlichen Preis sehen – für iPhone, Samsung Galaxy, iPad, MacBook und über 350 Modelle. Phone Doctor Frankfurt.',
+        'Was kostet deine Handy-Reparatur? Gerät wählen, Schaden beschreiben und sofort den voraussichtlichen Preis sehen – für iPhone, Samsung Galaxy, iPad, MacBook und fast 400 Modelle. Phone Doctor Frankfurt.',
     },
   },
   {

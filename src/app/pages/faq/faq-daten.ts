@@ -42,12 +42,17 @@ export const FAQS: FaqEntry[] = [
   {
     frage: 'Bleiben meine Daten bei der Reparatur erhalten?',
     antwort:
-      'Bei den meisten Reparaturen wie Display- oder Akku-Tausch bleiben deine Daten unberührt auf dem Gerät. Wir empfehlen trotzdem, vorher ein Backup zu machen, falls das möglich ist. Deine Daten werden bei uns selbstverständlich vertraulich behandelt.',
+      'Ja, in der Regel schon: Wir setzen dein Gerät nicht zurück, Fotos, Apps und Nachrichten bleiben bei Display-, Akku- und den meisten anderen Reparaturen auf dem Gerät. Ein Backup vorab empfehlen wir trotzdem, falls das möglich ist. Deine Daten werden bei uns selbstverständlich vertraulich behandelt.',
   },
   {
     frage: 'Bekomme ich Garantie auf die Reparatur?',
     antwort:
-      'Ja, auf die verbauten Ersatzteile und unsere Arbeit gilt die gesetzliche Gewährleistung. Ausgenommen sind Wasserschäden und daraus entstehende Folgeschäden – dort lässt sich eine dauerhafte Funktion technisch nicht garantieren.',
+      'Ja, auf jede Reparatur bekommst du 6 Monate Garantie – auf das verbaute Ersatzteil und unsere Arbeit. Ausgenommen sind Wasserschäden und daraus entstehende Folgeschäden, weil sich dort eine dauerhafte Funktion technisch nicht garantieren lässt. Deine gesetzlichen Gewährleistungsrechte bleiben davon unberührt.',
+  },
+  {
+    frage: 'Macht ihr Kostenvoranschläge für die Handyversicherung?',
+    antwort:
+      'Ja. Ist dein Handy versichert, erstellen wir dir einen Kostenvoranschlag, den du bei deiner Handyversicherung einreichen kannst. Bring das Gerät einfach ohne Termin vorbei.',
   },
   {
     frage: 'Verwendet ihr Originalteile?',

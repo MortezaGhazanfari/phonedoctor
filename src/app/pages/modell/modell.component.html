@@ -21,13 +21,21 @@
 
     <div class="cta-buttons">
       <a class="btn whatsapp" [href]="whatsappHref" target="_blank" rel="noopener noreferrer">💬 Preis per WhatsApp anfragen</a>
-      <a class="btn tel" [href]="'tel:' + contact.phone">☎️ {{ contact.phone }}</a>
+      <a class="btn tel" [href]="'tel:' + contact.phone">☎️ {{ telefonAnzeige(contact.phone) }}</a>
     </div>
+
+    <ul class="vorteile">
+      <li>✓ 6 Monate Garantie</li>
+      <li>✓ Daten bleiben erhalten</li>
+      <li>✓ Ohne Termin, oft in 30–90 Min.</li>
+      <li>✓ Preis vorab</li>
+    </ul>
 
     <h2>Alle Reparaturen und Preise für das {{ name }}</h2>
     <div class="reparatur-liste">
       <article class="reparatur" *ngFor="let r of reparaturen">
         <h3>{{ name }} {{ r.label }}</h3>
+        <p *ngIf="r.info">{{ r.info }}</p>
         <ul>
           <li *ngFor="let e of r.eintraege">
             <span>{{ qualitaetLabel(e.q) }}</span>
@@ -38,11 +46,29 @@
     </div>
 
     <p class="hinweis">
-      Unverbindliche Richtpreise, Stand August 2026. Bei mehreren
+      Unverbindliche Richtpreise, Stand November 2026. Bei mehreren
       Qualitätsstufen beraten wir dich vor der Reparatur, welche Option für
       dein {{ name }} sinnvoll ist. Fehlerdiagnose mit Kostenvoranschlag:
       {{ general.kva }} € (bei Wasserschaden {{ general.wasserKva }} €).
     </p>
+
+    <ng-container *ngIf="qualitaeten.length > 1">
+      <h2>Welche Qualität passt zu dir?</h2>
+      <ul class="qualitaeten">
+        <li *ngFor="let q of qualitaeten"><strong>{{ q.name }}:</strong> {{ q.text }}</li>
+      </ul>
+    </ng-container>
+
+    <div class="vor-ort">
+      <h2>Vor Ort statt per Post</h2>
+      <p>
+        Du musst dein {{ name }} nicht einschicken und tagelang ohne Handy sein:
+        Bring es ohne Termin in die Borsigallee 37 (direkt gegenüber dem
+        Hessen-Center). Display- und Akku-Tausch sind bei vorrätigen Teilen
+        meist in 30 bis 90 Minuten fertig – kein Versandrisiko, und du siehst
+        vorher, was es kostet.
+      </p>
+    </div>
 
     <h2>Häufige Fragen zur {{ name }} Reparatur</h2>
     <div class="faq-liste">

@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "seo": "node scripts/generate-seo-files.mjs",
+    "chatgpt-feed": "node scripts/generate-chatgpt-feed.mjs",
     "prebuild": "npm run seo",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",

@@ -39,7 +39,7 @@ const ALLGEMEINE_FAQS: Faq[] = [
   {
     frage: 'Bekomme ich Garantie auf die Reparatur?',
     antwort:
-      'Ja, auf verbaute Ersatzteile und unsere Arbeit gilt die gesetzliche Gewährleistung. Ausgenommen sind Wasserschäden und daraus entstehende Folgeschäden.',
+      'Ja, auf jede Reparatur bekommst du 6 Monate Garantie – auf das verbaute Ersatzteil und unsere Arbeit. Ausgenommen sind Wasserschäden und daraus entstehende Folgeschäden, weil sich dort eine dauerhafte Funktion technisch nicht garantieren lässt. Deine gesetzlichen Gewährleistungsrechte bleiben davon unberührt.',
   },
 ];
 

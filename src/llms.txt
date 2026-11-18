@@ -13,12 +13,15 @@
 - E-Mail: info@phonedoctorffm.de
 - Google Maps: https://maps.google.com/?cid=3590818545737842092
 - Fehlerdiagnose mit Kostenvoranschlag: 15 €, bei Wasserschaden 30 €
+- Kostenvoranschläge für Handyversicherungen
+- Garantie: 6 Monate auf jede Reparatur (Ersatzteil und Arbeit), außer bei Wasserschäden; die gesetzliche Gewährleistung bleibt unberührt
+- Daten: Das Gerät wird nicht zurückgesetzt, die Daten bleiben in der Regel erhalten
 
 ## Reparaturen nach Gerät
 
-- [Handy-Reparatur](https://phonedoctorffm.de/reparatur/handy-reparatur-frankfurt/): Wir reparieren iPhone, Samsung Galaxy, Google Pixel, Huawei, Sony Xperia, Xiaomi, OnePlus, Oppo, Motorola und weitere Marken. Preise: Display / Bildschirm ab 59 €, Akku ab 50 €, Ladebuchse ab 50 €, Rückseite / Backcover ab 50 €, Kamera ab 60 €, Hörmuschel ab 60 €.
+- [Handy-Reparatur](https://phonedoctorffm.de/reparatur/handy-reparatur-frankfurt/): Wir reparieren iPhone, Samsung Galaxy, Google Pixel, Huawei, Sony Xperia, Xiaomi, OnePlus, Oppo, Motorola und weitere Marken. Preise: Display / Bildschirm ab 59 €, Akku ab 50 €, Ladebuchse ab 50 €, Rückseite / Backcover ab 50 €, Kamera ab 60 €, Hörmuschel ab 49 €.
 - [iPhone-Reparatur](https://phonedoctorffm.de/reparatur/iphone-reparatur-frankfurt/): Wir reparieren alle iPhone-Modelle, auch iPhone SE, mini, Plus, Pro und Pro Max. Preise: Display / Bildschirm ab 59 €, Akku ab 50 €, Rückseite / Backcover ab 99 €, Ladebuchse ab 50 €, Kamera ab 69 €, Kameraglas ab 39 €.
-- [Samsung-Reparatur](https://phonedoctorffm.de/reparatur/samsung-reparatur-frankfurt/): Wir reparieren Galaxy S, Galaxy A, Galaxy M, Galaxy Note sowie Galaxy Z Flip und Z Fold. Preise: Display / Bildschirm ab 70 €, Akku ab 59 €, Rückseite / Backcover ab 60 €, Ladebuchse ab 50 €, Kameraglas ab 40 €, Mikrofon ab 80 €.
+- [Samsung-Reparatur](https://phonedoctorffm.de/reparatur/samsung-reparatur-frankfurt/): Wir reparieren Galaxy S, Galaxy A, Galaxy M, Galaxy Note sowie Galaxy Z Flip und Z Fold. Preise: Display / Bildschirm ab 70 €, Akku ab 59 €, Rückseite / Backcover ab 59 €, Ladebuchse ab 50 €, Kameraglas ab 40 €, Mikrofon ab 59 €.
 - [Tablet- & iPad-Reparatur](https://phonedoctorffm.de/reparatur/tablet-reparatur-frankfurt/): Wir reparieren Apple iPad (alle Generationen), Samsung Galaxy Tab, Microsoft Surface, Huawei MediaPad und weitere Tablets. Preise: Frontglas / Touchscreen ab 99 €, Display / Bildschirm ab 99 €, Akku ab 99 €, Ladebuchse ab 99 €.
 - [MacBook-Reparatur](https://phonedoctorffm.de/reparatur/macbook-reparatur-frankfurt/): Wir reparieren MacBook Air, MacBook Pro (auch Retina und Touch Bar) und weitere Mac-Modelle – neuere Modelle auf Anfrage. Preise: Display / Bildschirm ab 149 €, Akku ab 119 €, Tastatur ab 199 €, Ladebuchse ab 99 €, Wasserschaden ab 49 €, Datenrettung ab 99 €.
 - [Laptop- & Notebook-Reparatur](https://phonedoctorffm.de/reparatur/laptop-reparatur-frankfurt/): Wir reparieren Lenovo, HP, Dell, Asus, Acer, MSI, Microsoft Surface, Apple MacBook und weitere Marken. Preise: Display / Bildschirm ab 149 €, Akku ab 119 €, Tastatur ab 199 €, Ladebuchse ab 99 €, Datenrettung ab 99 €.
@@ -35,7 +38,7 @@
 
 ## Reparaturpreise nach Modell
 
-Unverbindliche Richtpreise (Stand August 2026), je nach Ersatzteil-Qualität.
+Unverbindliche Richtpreise (Stand November 2026), je nach Ersatzteil-Qualität.
 
 - [Apple Watch SE (1nd Generation) 40mm](https://phonedoctorffm.de/preise/apple-watch-se-1nd-generation-40mm/): Display / Bildschirm ab 149 €, Frontglas / Touchscreen ab 99 €, Akku ab 169 €
 - [Apple Watch SE (1nd Generation) 44mm](https://phonedoctorffm.de/preise/apple-watch-se-1nd-generation-44mm/): Display / Bildschirm ab 169 €, Frontglas / Touchscreen ab 109 €, Akku ab 169 €
@@ -93,7 +96,8 @@ Unverbindliche Richtpreise (Stand August 2026), je nach Ersatzteil-Qualität.
 - [Samsung Galaxy A31 (SM-A315)](https://phonedoctorffm.de/preise/samsung-galaxy-a31-sm-a315/): Display / Bildschirm ab 119 €, Akku ab 70 €, Ladebuchse ab 80 €, Rückseite / Backcover ab 70 €
 - [Samsung Galaxy A32 4G (SM-A325)](https://phonedoctorffm.de/preise/samsung-galaxy-a32-4g-sm-a325/): Display / Bildschirm ab 109 €, Akku ab 70 €, Ladebuchse ab 80 €, Rückseite / Backcover ab 70 €
 - [Samsung Galaxy A32 5G (SM-A326)](https://phonedoctorffm.de/preise/samsung-galaxy-a32-5g-sm-a326/): Display / Bildschirm ab 99 €, Akku ab 70 €, Ladebuchse ab 80 €, Rückseite / Backcover ab 70 €
-- [Samsung Galaxy A34 5G (SM-A336)](https://phonedoctorffm.de/preise/samsung-galaxy-a34-5g-sm-a336/): Display / Bildschirm ab 129 €, Akku ab 70 €, Ladebuchse ab 80 €, Rückseite / Backcover ab 70 €
+- [Samsung Galaxy A33 5G (SM-A336)](https://phonedoctorffm.de/preise/samsung-galaxy-a33-5g-sm-a336/): Display / Bildschirm ab 129 €, Akku ab 70 €, Ladebuchse ab 80 €, Rückseite / Backcover ab 70 €
+- [Samsung Galaxy A34 5G (SM-A346)](https://phonedoctorffm.de/preise/samsung-galaxy-a34-5g-sm-a346/): Display / Bildschirm ab 129 €, Akku ab 70 €, Ladebuchse ab 80 €, Rückseite / Backcover ab 70 €
 - [Samsung Galaxy A35 5G (SM-A356)](https://phonedoctorffm.de/preise/samsung-galaxy-a35-5g-sm-a356/): Display / Bildschirm ab 109 €, Akku ab 70 €, Ladebuchse ab 80 €, Rückseite / Backcover ab 70 €
 - [Samsung Galaxy A36 5G (SM-A366)](https://phonedoctorffm.de/preise/samsung-galaxy-a36-5g-sm-a366/): Display / Bildschirm ab 139 €, Akku ab 70 €, Ladebuchse ab 80 €, Rückseite / Backcover ab 70 €
 - [Samsung Galaxy A53 (SM-A536)](https://phonedoctorffm.de/preise/samsung-galaxy-a53-sm-a536/): Display / Bildschirm ab 129 €, Akku ab 70 €, Ladebuchse ab 80 €, Rückseite / Backcover ab 70 €
@@ -121,6 +125,11 @@ Unverbindliche Richtpreise (Stand August 2026), je nach Ersatzteil-Qualität.
 - [Samsung Galaxy S25](https://phonedoctorffm.de/preise/samsung-galaxy-s25/): Display / Bildschirm ab 189 €, Akku ab 80 €, Ladebuchse ab 90 €, Rückseite / Backcover ab 80 €
 - [Samsung Galaxy S25 Plus](https://phonedoctorffm.de/preise/samsung-galaxy-s25-plus/): Display / Bildschirm ab 209 €, Akku ab 80 €, Ladebuchse ab 90 €, Rückseite / Backcover ab 80 €
 - [Samsung Galaxy S25 Ultra](https://phonedoctorffm.de/preise/samsung-galaxy-s25-ultra/): Display / Bildschirm ab 279 €, Akku ab 80 €, Ladebuchse ab 90 €, Rückseite / Backcover ab 80 €
+- [Samsung Galaxy S26](https://phonedoctorffm.de/preise/samsung-galaxy-s26/): Display / Bildschirm ab 279 €, Akku ab 119 €, Ladebuchse ab 119 €, Rückseite / Backcover ab 99 €
+- [Samsung Galaxy S26 Plus](https://phonedoctorffm.de/preise/samsung-galaxy-s26-plus/): Display / Bildschirm ab 279 €, Akku ab 119 €, Ladebuchse ab 119 €, Rückseite / Backcover ab 99 €
+- [Samsung Galaxy S26 Ultra](https://phonedoctorffm.de/preise/samsung-galaxy-s26-ultra/): Display / Bildschirm ab 349 €, Akku ab 119 €, Ladebuchse ab 119 €, Rückseite / Backcover ab 119 €
+- [Samsung Galaxy S26 FE](https://phonedoctorffm.de/preise/samsung-galaxy-s26-fe/): Display / Bildschirm ab 219 €, Akku ab 79 €, Ladebuchse ab 89 €, Rückseite / Backcover ab 89 €
+- [Samsung Galaxy A27 5G](https://phonedoctorffm.de/preise/samsung-galaxy-a27-5g/): Display / Bildschirm ab 119 €, Akku ab 79 €, Ladebuchse ab 59 €, Rückseite / Backcover ab 59 €
 - [Galaxy Samsung Z Fold 4](https://phonedoctorffm.de/preise/galaxy-samsung-z-fold-4/): Display / Bildschirm ab 649 €, Akku ab 149 €, Ladebuchse ab 159 €, Rückseite / Backcover ab 149 €
 - [Galaxy Samsung Z Fold 5](https://phonedoctorffm.de/preise/galaxy-samsung-z-fold-5/): Display / Bildschirm ab 599 €, Akku ab 149 €, Ladebuchse ab 159 €, Rückseite / Backcover ab 149 €
 - [Galaxy Samsung Z Fold 6](https://phonedoctorffm.de/preise/galaxy-samsung-z-fold-6/): Display / Bildschirm ab 649 €, Akku ab 149 €, Ladebuchse ab 159 €, Rückseite / Backcover ab 149 €
@@ -369,6 +378,11 @@ Unverbindliche Richtpreise (Stand August 2026), je nach Ersatzteil-Qualität.
 - [iPhone 16 Pro](https://phonedoctorffm.de/preise/iphone-16-pro/): Display / Bildschirm ab 219 €, Akku ab 119 €, Ladebuchse ab 159 €, Rückseite / Backcover ab 169 €
 - [iPhone 16 Pro Max](https://phonedoctorffm.de/preise/iphone-16-pro-max/): Display / Bildschirm ab 249 €, Akku ab 119 €, Ladebuchse ab 169 €, Rückseite / Backcover ab 189 €
 - [iPhone 16e](https://phonedoctorffm.de/preise/iphone-16e/): Display / Bildschirm ab 129 €, Akku ab 99 €, Ladebuchse ab 139 €, Rückseite / Backcover ab 149 €
+- [iPhone 17](https://phonedoctorffm.de/preise/iphone-17/): Display / Bildschirm ab 149 €, Akku ab 99 €, Ladebuchse ab 119 €, Rückseite / Backcover ab 199 €
+- [iPhone 17 Pro](https://phonedoctorffm.de/preise/iphone-17-pro/): Display / Bildschirm ab 219 €, Akku ab 119 €, Ladebuchse ab 129 €, Rückseite / Backcover ab 179 €
+- [iPhone 17 Pro Max](https://phonedoctorffm.de/preise/iphone-17-pro-max/): Display / Bildschirm ab 249 €, Akku ab 119 €, Ladebuchse ab 129 €, Rückseite / Backcover ab 199 €
+- [iPhone Air](https://phonedoctorffm.de/preise/iphone-air/): Display / Bildschirm ab 239 €, Frontglas / Touchscreen ab 199 €, Akku ab 189 €, Ladebuchse ab 129 €, Rückseite / Backcover ab 179 €
+- [iPhone 17e](https://phonedoctorffm.de/preise/iphone-17e/): Display / Bildschirm ab 149 €, Frontglas / Touchscreen ab 189 €, Akku ab 159 €, Ladebuchse ab 119 €, Rückseite / Backcover ab 219 €
 - [iPhone 5](https://phonedoctorffm.de/preise/iphone-5/): Display / Bildschirm ab 260 €, Akku ab 50 €, Ladebuchse ab 50 €
 - [iPhone 5C](https://phonedoctorffm.de/preise/iphone-5c/): Display / Bildschirm ab 80 €, Frontglas / Touchscreen ab 80 €, Akku ab 50 €, Ladebuchse ab 50 €
 - [iPhone 5s](https://phonedoctorffm.de/preise/iphone-5s/): Display / Bildschirm ab 260 €, Akku ab 50 €, Ladebuchse ab 50 €
@@ -387,3 +401,39 @@ Unverbindliche Richtpreise (Stand August 2026), je nach Ersatzteil-Qualität.
 - [iPhone XR](https://phonedoctorffm.de/preise/iphone-xr/): Display / Bildschirm ab 79 €, Frontglas / Touchscreen ab 99 €, Akku ab 70 €, Ladebuchse ab 99 €, Rückseite / Backcover ab 139 €
 - [iPhone XS Max](https://phonedoctorffm.de/preise/iphone-xs-max/): Display / Bildschirm ab 99 €, Frontglas / Touchscreen ab 99 €, Akku ab 70 €, Ladebuchse ab 109 €, Rückseite / Backcover ab 139 €
 - [iPhone XS](https://phonedoctorffm.de/preise/iphone-xs/): Display / Bildschirm ab 89 €, Frontglas / Touchscreen ab 99 €, Akku ab 70 €, Ladebuchse ab 99 €, Rückseite / Backcover ab 139 €
+- [Xiaomi 11T Pro](https://phonedoctorffm.de/preise/xiaomi-11t-pro/): Display / Bildschirm ab 329 €, Akku ab 89 €, Ladebuchse ab 89 €, Rückseite / Backcover ab 89 €
+- [Xiaomi 12 Pro](https://phonedoctorffm.de/preise/xiaomi-12-pro/): Display / Bildschirm ab 219 €, Akku ab 119 €, Ladebuchse ab 99 €, Rückseite / Backcover ab 99 €
+- [Xiaomi 12](https://phonedoctorffm.de/preise/xiaomi-12/): Display / Bildschirm ab 189 €, Rückseite / Backcover ab 99 €
+- [Xiaomi 12T Pro](https://phonedoctorffm.de/preise/xiaomi-12t-pro/): Display / Bildschirm ab 189 €, Ladebuchse ab 99 €, Rückseite / Backcover ab 119 €
+- [Xiaomi 12T](https://phonedoctorffm.de/preise/xiaomi-12t/): Display / Bildschirm ab 189 €, Rückseite / Backcover ab 99 €
+- [Xiaomi 13 Lite 5G](https://phonedoctorffm.de/preise/xiaomi-13-lite-5g/): Display / Bildschirm ab 129 €, Akku ab 99 €, Ladebuchse ab 99 €, Rückseite / Backcover ab 109 €
+- [Xiaomi 13](https://phonedoctorffm.de/preise/xiaomi-13/): Display / Bildschirm ab 189 €, Rückseite / Backcover ab 99 €
+- [Xiaomi 13 Ultra](https://phonedoctorffm.de/preise/xiaomi-13-ultra/): Display / Bildschirm ab 399 €, Ladebuchse ab 129 €
+- [Xiaomi 13T Pro](https://phonedoctorffm.de/preise/xiaomi-13t-pro/): Display / Bildschirm ab 139 €, Akku ab 99 €, Ladebuchse ab 99 €, Rückseite / Backcover ab 89 €
+- [Xiaomi 13T](https://phonedoctorffm.de/preise/xiaomi-13t/): Display / Bildschirm ab 189 €
+- [Xiaomi 14](https://phonedoctorffm.de/preise/xiaomi-14/): Display / Bildschirm ab 189 €, Ladebuchse ab 119 €, Rückseite / Backcover ab 99 €
+- [Xiaomi 14 Ultra](https://phonedoctorffm.de/preise/xiaomi-14-ultra/): Display / Bildschirm ab 289 €, Ladebuchse ab 99 €, Rückseite / Backcover ab 149 €
+- [Xiaomi 14T](https://phonedoctorffm.de/preise/xiaomi-14t/): Display / Bildschirm ab 189 €, Rückseite / Backcover ab 99 €
+- [Xiaomi 15](https://phonedoctorffm.de/preise/xiaomi-15/): Display / Bildschirm ab 189 €, Rückseite / Backcover ab 99 €
+- [Xiaomi 15T](https://phonedoctorffm.de/preise/xiaomi-15t/): Display / Bildschirm ab 189 €, Rückseite / Backcover ab 99 €
+- [Xiaomi 17](https://phonedoctorffm.de/preise/xiaomi-17/): Display / Bildschirm ab 189 €, Rückseite / Backcover ab 99 €
+- [Xiaomi 17T](https://phonedoctorffm.de/preise/xiaomi-17t/): Display / Bildschirm ab 189 €, Rückseite / Backcover ab 99 €
+- [Xiaomi Mi 10T Lite](https://phonedoctorffm.de/preise/xiaomi-mi-10t-lite/): Display / Bildschirm ab 129 €, Ladebuchse ab 79 €
+- [Xiaomi Mi 10T Pro](https://phonedoctorffm.de/preise/xiaomi-mi-10t-pro/): Display / Bildschirm ab 279 €, Akku ab 79 €, Ladebuchse ab 79 €, Rückseite / Backcover ab 89 €
+- [Xiaomi Mi 11 Lite 4G/5G](https://phonedoctorffm.de/preise/xiaomi-mi-11-lite-4g-5g/): Display / Bildschirm ab 149 €, Akku ab 79 €, Rückseite / Backcover ab 89 €
+- [Xiaomi Mi 11](https://phonedoctorffm.de/preise/xiaomi-mi-11/): Display / Bildschirm ab 329 €, Akku ab 89 €, Ladebuchse ab 89 €, Rückseite / Backcover ab 89 €
+- [Xiaomi Mi 11 Ultra](https://phonedoctorffm.de/preise/xiaomi-mi-11-ultra/): Preis auf Anfrage
+- [Xiaomi POCO F5](https://phonedoctorffm.de/preise/xiaomi-poco-f5/): Display / Bildschirm ab 124 €, Akku ab 79 €, Ladebuchse ab 69 €, Rückseite / Backcover ab 69 €
+- [Xiaomi POCO F6](https://phonedoctorffm.de/preise/xiaomi-poco-f6/): Display / Bildschirm ab 124 €, Akku ab 79 €, Ladebuchse ab 69 €, Rückseite / Backcover ab 69 €
+- [Xiaomi POCO F7](https://phonedoctorffm.de/preise/xiaomi-poco-f7/): Display / Bildschirm ab 124 €, Akku ab 79 €, Ladebuchse ab 69 €, Rückseite / Backcover ab 69 €
+- [Xiaomi POCO X6](https://phonedoctorffm.de/preise/xiaomi-poco-x6/): Display / Bildschirm ab 124 €, Akku ab 79 €, Ladebuchse ab 69 €, Rückseite / Backcover ab 69 €
+- [Xiaomi POCO X7](https://phonedoctorffm.de/preise/xiaomi-poco-x7/): Display / Bildschirm ab 124 €, Akku ab 79 €, Ladebuchse ab 69 €, Rückseite / Backcover ab 69 €
+- [Xiaomi Redmi A5](https://phonedoctorffm.de/preise/xiaomi-redmi-a5/): Display / Bildschirm ab 119 €, Ladebuchse ab 69 €
+- [Xiaomi Redmi Note 10 5G](https://phonedoctorffm.de/preise/xiaomi-redmi-note-10-5g/): Display / Bildschirm ab 135 €, Ladebuchse ab 79 €, Rückseite / Backcover ab 74 €
+- [Xiaomi Redmi Note 10 Pro](https://phonedoctorffm.de/preise/xiaomi-redmi-note-10-pro/): Display / Bildschirm ab 209 €, Akku ab 89 €, Ladebuchse ab 69 €, Rückseite / Backcover ab 79 €
+- [Xiaomi Redmi Note 12](https://phonedoctorffm.de/preise/xiaomi-redmi-note-12/): Display / Bildschirm ab 169 €, Ladebuchse ab 69 €, Rückseite / Backcover ab 79 €
+- [Xiaomi Redmi Note 13 Pro](https://phonedoctorffm.de/preise/xiaomi-redmi-note-13-pro/): Display / Bildschirm ab 159 €, Ladebuchse ab 99 €, Rückseite / Backcover ab 99 €
+- [Xiaomi Redmi Note 13](https://phonedoctorffm.de/preise/xiaomi-redmi-note-13/): Display / Bildschirm ab 169 €, Ladebuchse ab 69 €, Rückseite / Backcover ab 79 €
+- [Xiaomi Redmi Note 14](https://phonedoctorffm.de/preise/xiaomi-redmi-note-14/): Display / Bildschirm ab 169 €, Ladebuchse ab 69 €, Rückseite / Backcover ab 79 €
+- [Xiaomi Redmi Note 15](https://phonedoctorffm.de/preise/xiaomi-redmi-note-15/): Display / Bildschirm ab 169 €, Ladebuchse ab 69 €, Rückseite / Backcover ab 79 €
+- [Xiaomi Redmi Note 9 Pro](https://phonedoctorffm.de/preise/xiaomi-redmi-note-9-pro/): Display / Bildschirm ab 119 €, Akku ab 79 €, Ladebuchse ab 79 €, Rückseite / Backcover ab 79 €

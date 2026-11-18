@@ -87,6 +87,9 @@ const zeilen = [
   `- E-Mail: ${CONTACT_CONFIG.email}`,
   '- Google Maps: https://maps.google.com/?cid=3590818545737842092',
   `- Fehlerdiagnose mit Kostenvoranschlag: 15 €, bei Wasserschaden 30 €`,
+  '- Kostenvoranschläge für Handyversicherungen',
+  '- Garantie: 6 Monate auf jede Reparatur (Ersatzteil und Arbeit), außer bei Wasserschäden; die gesetzliche Gewährleistung bleibt unberührt',
+  '- Daten: Das Gerät wird nicht zurückgesetzt, die Daten bleiben in der Regel erhalten',
   '',
   '## Reparaturen nach Gerät',
   '',
@@ -106,7 +109,7 @@ const zeilen = [
   '',
   '## Reparaturpreise nach Modell',
   '',
-  'Unverbindliche Richtpreise (Stand August 2026), je nach Ersatzteil-Qualität.',
+  'Unverbindliche Richtpreise (Stand November 2026), je nach Ersatzteil-Qualität.',
   '',
   ...PRICE_DATA.map((m) => {
     const teile = ['display', 'glas', 'akku', 'ladebuchse', 'backcover', 'tastatur']
@@ -141,7 +144,7 @@ schreibeMd('/', zeilen);
 schreibeMd('/preise', [
   '# Reparatur-Preise – Phone Doctor Frankfurt',
   '',
-  'Unverbindliche Richtpreise (Stand August 2026), je nach Ersatzteil-Qualität. Preisrechner: ' + url('/preise'),
+  'Unverbindliche Richtpreise (Stand November 2026), je nach Ersatzteil-Qualität. Preisrechner: ' + url('/preise'),
   '',
   ...zeilen.slice(zeilen.indexOf('## Reparaturpreise nach Modell') + 4),
   '',
@@ -178,7 +181,7 @@ for (const m of PRICE_DATA) {
   schreibeMd(`/preise/${modellSlug(m)}`, [
     `# ${name} Reparatur in Frankfurt – Preise`,
     '',
-    `Reparaturpreise von Phone Doctor Frankfurt für das ${name}. Unverbindliche Richtpreise (Stand August 2026).`,
+    `Reparaturpreise von Phone Doctor Frankfurt für das ${name}. Unverbindliche Richtpreise (Stand November 2026). 6 Monate Garantie auf jede Reparatur (außer Wasserschaden), die Daten bleiben in der Regel erhalten, ohne Termin – Display- und Akku-Tausch meist in 30 bis 90 Minuten.`,
     '',
     ...Object.entries(m.repairs).flatMap(([k, eintraege]) => [
       `## ${label(k)}`,

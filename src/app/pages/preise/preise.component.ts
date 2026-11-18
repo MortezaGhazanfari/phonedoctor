@@ -50,7 +50,7 @@ export class PreiseComponent {
   diagnoseHinweis = false;
 
   constructor(seo: SeoService) {
-    const marken = ['Apple', 'Samsung', 'Google', 'Huawei', 'Sony', 'Microsoft'];
+    const marken = ['Apple', 'Samsung', 'Xiaomi', 'Google', 'Huawei', 'Sony', 'Microsoft'];
     this.preisliste = marken
       .map((b) => ({
         brand: b,

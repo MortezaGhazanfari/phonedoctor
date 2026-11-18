@@ -11,6 +11,10 @@ AddDefaultCharset UTF-8
 # KI-Agenten, die "Accept: text/markdown" senden, bekommen statt der HTML-Seite deren Markdown-Fassung
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
+  # Galaxy A34 stand früher mit der Modellnummer des A33 (SM-A336) in der Preisliste
+  RewriteRule ^preise/samsung-galaxy-a34-5g-sm-a336/?$ /preise/samsung-galaxy-a34-5g-sm-a346/ [R=301,L]
+
   RewriteCond %{HTTP_ACCEPT} text/markdown [NC]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteCond %{REQUEST_FILENAME}/index.md -f

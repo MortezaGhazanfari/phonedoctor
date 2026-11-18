@@ -4,7 +4,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavBarComponent } from '../../core/nav-bar/nav-bar.component';
 import { FooterComponent } from '../../core/footer/footer.component';
-import { CONTACT_CONFIG } from '../../core/contact/contact.config.config';
+import { CONTACT_CONFIG, telefonAnzeige } from '../../core/contact/contact.config.config';
 import { SITE_URL, SeoService } from '../../core/seo/seo.service';
 import { DeviceModel, GENERAL_SERVICES, PRICE_DATA, PriceEntry } from '../preise/price-data';
 import { KATEGORIEN } from '../preise/reparatur-kategorien';
@@ -16,6 +16,7 @@ interface Reparatur {
   label: string;
   ab: number;
   eintraege: PriceEntry[];
+  info: string;
 }
 
 interface Verwandt {
@@ -25,6 +26,35 @@ interface Verwandt {
 
 /** Reihenfolge nach Häufigkeit der Kundenanfragen; nicht gelistete Reparaturen folgen danach. */
 const REIHENFOLGE = ['display', 'glas', 'akku', 'ladebuchse', 'backcover', 'tastatur', 'kamera', 'kameraglas', 'wasserschaden', 'datenrettung'];
+
+/** Kurze Erklärung je Reparaturart, damit Kunden (und Suchmaschinen) wissen, was gemacht wird. */
+const REPARATUR_INFO: Record<string, string> = {
+  display: 'Wir tauschen die komplette Displayeinheit aus Glas, Bildschirm und Touch – bei Rissen, Streifen, schwarzem Bild oder wenn der Touch nicht reagiert.',
+  glas: 'Ist nur das Glas gesprungen und das Bild darunter in Ordnung, tauschen wir nur das Frontglas – oft günstiger als ein ganzes Display.',
+  akku: 'Neuer Akku, wenn dein Gerät schnell leer ist, sich plötzlich ausschaltet oder der Akku aufgebläht ist.',
+  ladebuchse: 'Lädt das Gerät nur noch mit Wackeln oder gar nicht mehr? Oft reicht eine Reinigung, sonst tauschen wir die Ladebuchse.',
+  backcover: 'Gesprungene Rückseite? Wir ersetzen das Rückglas bzw. Backcover, damit kein Staub und keine Feuchtigkeit eindringen.',
+  kameraglas: 'Splitter im Kameraglas führen zu unscharfen Fotos – wir tauschen das Schutzglas der Kamera.',
+  kamera: 'Unscharfe, flackernde oder schwarze Kamera? Wir tauschen das Kameramodul.',
+  hoermuschel: 'Hörst du beim Telefonieren nichts oder nur leise? Dann tauschen wir die Hörmuschel.',
+  lautsprecher: 'Kein Ton beim Klingeln oder bei Musik? Wir prüfen und tauschen den Lautsprecher.',
+  staubnetz: 'Leiser oder kratziger Ton durch Schmutz: Wir reinigen den Lautsprecher und tauschen das Staubnetz.',
+  mikrofon: 'Dein Gesprächspartner versteht dich nicht? Wir tauschen das Mikrofon.',
+  sim: 'SIM-Karte wird nicht erkannt? Wir tauschen den SIM-Kartenleser.',
+  kopfhoererbuchse: 'Kopfhörer werden nicht erkannt oder knacken? Wir tauschen die Kopfhörerbuchse.',
+  tastatur: 'Klemmende oder ausgefallene Tasten: Wir tauschen die Tastatur.',
+  datenrettung: 'Gerät defekt, aber die Fotos und Daten sind wichtig? Wir versuchen, sie zu retten.',
+  wasserschaden: 'Wir öffnen, reinigen und trocknen das Gerät und prüfen, was noch zu retten ist. Bei Wasserschäden gibt es keine Garantie auf die dauerhafte Funktion.',
+  komplett: 'Lohnt sich keine Einzelreparatur, tauschen wir die komplette Einheit.',
+};
+
+/** Erklärung der Qualitätsstufen, wenn ein Modell mehrere anbietet. */
+const QUALITAET_INFO: Record<string, string> = {
+  'Standard-Qualität': 'die günstigste Option mit einem Nachbau-Ersatzteil – gut, wenn das Gerät einfach wieder funktionieren soll.',
+  'Premium-Qualität': 'ein hochwertiges Ersatzteil, das in Farben, Helligkeit und Akkulaufzeit näher am Original liegt.',
+  Refurbished: 'ein aufbereitetes Original-Ersatzteil – Originalqualität zu einem niedrigeren Preis.',
+  Originalteil: 'ein Original-Ersatzteil des Herstellers – die beste Qualität.',
+};
 
 function qualitaetLabel(q: string): string {
   if (!q) return 'Austausch / Reparatur';
@@ -43,6 +73,7 @@ export class ModellComponent {
   private seo = inject(SeoService);
 
   contact = CONTACT_CONFIG;
+  telefonAnzeige = telefonAnzeige;
   general = GENERAL_SERVICES;
   qualitaetLabel = qualitaetLabel;
 
@@ -52,6 +83,7 @@ export class ModellComponent {
   seite: ReparaturSeite | null = null;
   verwandte: Verwandt[] = [];
   faqs: Faq[] = [];
+  qualitaeten: { name: string; text: string }[] = [];
 
   constructor() {
     inject(ActivatedRoute)
@@ -77,7 +109,13 @@ export class ModellComponent {
         label: k.label,
         ab: abPreis(m.repairs[k.id])!,
         eintraege: m.repairs[k.id],
+        info: REPARATUR_INFO[k.id] ?? '',
       }));
+
+    const stufen = new Set(this.reparaturen.flatMap((r) => r.eintraege.map((e) => e.q)));
+    this.qualitaeten = Object.keys(QUALITAET_INFO)
+      .filter((q) => stufen.has(q))
+      .map((q) => ({ name: q, text: QUALITAET_INFO[q] }));
 
     const gleicheMarke = PRICE_DATA.filter((x) => x.brand === m.brand && x !== m && seiteFuerModell(x) === this.seite);
     const idx = PRICE_DATA.indexOf(m);
@@ -99,7 +137,7 @@ export class ModellComponent {
       `${this.name} kaputt? Reparatur in Frankfurt (Borsigallee 37): ${this.reparaturen
         .slice(0, 4)
         .map((r) => `${r.label} ab ${r.ab} €`)
-        .join(', ')}. Unverbindliche Richtpreise, oft am selben Tag fertig.`,
+        .join(', ')}. 6 Monate Garantie, Daten bleiben erhalten, oft am selben Tag fertig.`,
     );
     this.setzeStrukturierteDaten(slug);
   }
@@ -124,6 +162,25 @@ export class ModellComponent {
         antwort: `Der Akku-Tausch für das ${this.name} kostet bei uns ab ${akku.ab} € (${preisText(akku)}).`,
       });
     }
+    for (const id of ['ladebuchse', 'backcover']) {
+      const r = this.reparaturen.find((x) => x.id === id);
+      if (r) {
+        faqs.push({
+          frage: `Was kostet ${id === 'ladebuchse' ? 'die Ladebuchse-Reparatur' : 'eine neue Rückseite'} beim ${this.name}?`,
+          antwort: `Bei Phone Doctor in Frankfurt kostet das ab ${r.ab} € (${preisText(r)}).`,
+        });
+      }
+    }
+    faqs.push({
+      frage: `Bekomme ich Garantie auf die ${this.name} Reparatur?`,
+      antwort:
+        'Ja, auf jede Reparatur gibt es 6 Monate Garantie auf das Ersatzteil und unsere Arbeit – außer bei Wasserschäden. Deine gesetzlichen Gewährleistungsrechte bleiben davon unberührt.',
+    });
+    faqs.push({
+      frage: `Bleiben meine Daten auf dem ${this.name} erhalten?`,
+      antwort:
+        'In der Regel ja: Wir setzen dein Gerät nicht zurück, Fotos, Apps und Nachrichten bleiben auf dem Gerät. Ein Backup vorab empfehlen wir trotzdem.',
+    });
     faqs.push({
       frage: `Wo kann ich mein ${this.name} in Frankfurt reparieren lassen?`,
       antwort: `Bei Phone Doctor in der Borsigallee 37, 60388 Frankfurt am Main (Bergen-Enkheim, gegenüber dem Hessen-Center). Du kannst ohne Termin vorbeikommen: Mo–Fr 09:30–17:30 Uhr, Sa 11:00–17:00 Uhr.`,
@@ -131,7 +188,11 @@ export class ModellComponent {
     faqs.push({
       frage: `Wie lange dauert die Reparatur meines ${this.name}?`,
       antwort:
-        'Display- und Akku-Tausch sind bei vorrätigen Teilen meist in 30 bis 90 Minuten erledigt. Frag am besten kurz per WhatsApp nach, ob dein Ersatzteil da ist.',
+        'Display- und Akku-Tausch sind bei vorrätigen Teilen meist in 30 bis 90 Minuten erledigt – du kannst warten und musst dein Handy nicht einschicken. Frag am besten kurz per WhatsApp nach, ob dein Ersatzteil da ist.',
+    });
+    faqs.push({
+      frage: 'Macht ihr auch Kostenvoranschläge für die Handyversicherung?',
+      antwort: `Ja. Ist dein ${this.name} versichert, erstellen wir dir einen Kostenvoranschlag für deine Handyversicherung.`,
     });
     return faqs;
   }
